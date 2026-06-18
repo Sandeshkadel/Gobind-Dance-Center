@@ -275,13 +275,66 @@
             border: 2px solid #E48A24;
             transition: all 0.3s ease;
             font-weight: 500;
+            position: relative;
+            isolation: isolate;
+            border-radius: 999px;
+            box-shadow:
+                0 8px 20px rgba(228, 138, 36, 0.32),
+                0 2px 6px rgba(194, 65, 12, 0.16),
+                inset 0 1px 0 rgba(255, 255, 255, 0.28),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+            animation: btn-breathe 3.4s ease-in-out infinite;
+            will-change: transform, box-shadow;
         }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(
+                100deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.0) 30%,
+                rgba(255, 255, 255, 0.45) 50%,
+                rgba(255, 255, 255, 0.0) 70%,
+                transparent 100%
+            );
+            transform: skewX(-20deg);
+            pointer-events: none;
+            z-index: 1;
+            transition: left 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: inherit;
+            background: linear-gradient(120deg, #E48A24, #F4A93B, #E48A24);
+            background-size: 200% 100%;
+            opacity: 0;
+            filter: blur(10px);
+            z-index: -1;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .btn-primary > * { position: relative; z-index: 2; }
 
         .btn-primary:hover {
             background: #2A3A8C;
             border-color: #2A3A8C;
             color: #FFFFFF;
+            transform: translateY(-4px) scale(1.04);
+            letter-spacing: 0.22em;
+            animation: btn-breathe-blue 3.4s ease-in-out infinite;
         }
+
+        .btn-primary:hover::before { left: 130%; }
+        .btn-primary:hover::after  { opacity: 1; }
 
         @media (min-width: 1024px) {
             .hero-text {
@@ -944,13 +997,66 @@
             border: 2px solid #E48A24;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            isolation: isolate;
+            border-radius: 999px;
+            box-shadow:
+                0 8px 20px rgba(228, 138, 36, 0.32),
+                0 2px 6px rgba(194, 65, 12, 0.16),
+                inset 0 1px 0 rgba(255, 255, 255, 0.28),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+            animation: btn-breathe 3.4s ease-in-out infinite;
+            will-change: transform, box-shadow;
         }
+
+        .offer-main-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(
+                100deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.0) 30%,
+                rgba(255, 255, 255, 0.45) 50%,
+                rgba(255, 255, 255, 0.0) 70%,
+                transparent 100%
+            );
+            transform: skewX(-20deg);
+            pointer-events: none;
+            z-index: 1;
+            transition: left 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .offer-main-btn::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: inherit;
+            background: linear-gradient(120deg, #E48A24, #F4A93B, #E48A24);
+            background-size: 200% 100%;
+            opacity: 0;
+            filter: blur(10px);
+            z-index: -1;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .offer-main-btn > * { position: relative; z-index: 2; }
 
         .offer-main-btn:hover {
             background: #2A3A8C;
             border-color: #2A3A8C;
             color: white;
+            transform: translateY(-4px) scale(1.04);
+            letter-spacing: 0.24em;
+            animation: btn-breathe-blue 3.4s ease-in-out infinite;
         }
+
+        .offer-main-btn:hover::before { left: 130%; }
+        .offer-main-btn:hover::after  { opacity: 1; }
 
         /* ── MARQUEE ── */
         .marquee-container {
@@ -1181,19 +1287,63 @@
             background: #E48A24;
             color: #FFFFFF;
             border: none;
-            border-radius: 4px;
+            border-radius: 999px;
             text-decoration: none;
-            transition: background 0.25s ease, transform 0.15s ease;
+            transition: background 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.35s ease, letter-spacing 0.35s ease;
             font-weight: 500;
             margin-top: 0.05rem;
             cursor: pointer;
             position: relative;
             z-index: 5;
+            isolation: isolate;
+            overflow: hidden;
+            box-shadow:
+                0 4px 12px rgba(228, 138, 36, 0.30),
+                0 1px 3px rgba(194, 65, 12, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.28);
+            animation: btn-breathe 3.4s ease-in-out infinite;
+            will-change: transform, box-shadow;
         }
+
+        .offer-card-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(
+                100deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.0) 30%,
+                rgba(255, 255, 255, 0.50) 50%,
+                rgba(255, 255, 255, 0.0) 70%,
+                transparent 100%
+            );
+            transform: skewX(-20deg);
+            pointer-events: none;
+            z-index: 1;
+            transition: left 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .offer-card-btn > * { position: relative; z-index: 2; }
 
         .offer-card-btn:hover {
             background: #2A3A8C;
-            transform: scale(0.97);
+            transform: translateY(-2px) scale(1.04);
+            letter-spacing: 0.22em;
+            animation: btn-breathe-blue 3.4s ease-in-out infinite;
+            box-shadow:
+                0 8px 18px rgba(42, 58, 140, 0.32),
+                0 2px 6px rgba(30, 43, 110, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        }
+
+        .offer-card-btn:hover::before { left: 130%; }
+
+        .offer-card-btn:active {
+            transform: translateY(0) scale(0.97);
         }
 
         @media (min-width: 768px) {
@@ -1477,6 +1627,28 @@
             }
             50% {
                 opacity: 0.3;
+            }
+        }
+
+        /* ── Reduce motion for all premium animated buttons ── */
+        @media (prefers-reduced-motion: reduce) {
+            .btn-primary,
+            .offer-main-btn,
+            .offer-card-btn,
+            .btn-primary::before,
+            .offer-main-btn::before,
+            .offer-card-btn::before {
+                animation: none !important;
+                transition: all 0.2s ease !important;
+            }
+            .btn-primary:hover,
+            .offer-main-btn:hover,
+            .offer-card-btn:hover {
+                transform: translateY(-2px) scale(1.02);
+            }
+            .btn-primary::after,
+            .offer-main-btn::after {
+                display: none;
             }
         }
     </style>
