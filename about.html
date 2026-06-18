@@ -637,6 +637,56 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
+
+    /* ── 2560px / 4K tier ── */
+    @media (min-width: 2560px) {
+      .container { max-width: 2000px; padding-left: 2rem; padding-right: 2rem; }
+      .about-hero { height: 50vh; min-height: 720px; }
+      .about-hero h1 { font-size: 4.4rem; }
+      .about-hero p { font-size: 26px; max-width: 56rem; }
+      .about-bio { padding: 7rem 0; }
+      .about-bio h2 { font-size: 2.8rem; }
+      .about-bio p { font-size: 20px; line-height: 1.85; }
+      .about-bio-grid { grid-template-columns: 1fr 520px; gap: 5rem; }
+      .about-metrics { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+      .about-metric-value { font-size: 3.4rem; }
+      .about-metric-label { font-size: 16px; }
+      .about-metric-unit { font-size: 14px; }
+      .about-metric-desc { font-size: 17px; }
+      .about-timeline h3 { font-size: 19px; }
+      .about-timeline-year { font-size: 22px; }
+      .about-timeline-event { font-size: 21px; }
+      .about-philosophy { padding: 9rem 0; }
+      .about-philosophy-content { max-width: 72rem; }
+      .about-philosophy-quote { font-size: 6rem; }
+      .about-philosophy-text { font-size: 1.6rem; }
+      .about-philosophy-name { font-size: 20px; }
+    }
+
+    /* ── 3840px / 8K tier (75" 8K TV) ── */
+    @media (min-width: 3840px) {
+      .container { max-width: 2400px; padding-left: 2.5rem; padding-right: 2.5rem; }
+      .about-hero { height: 55vh; min-height: 920px; }
+      .about-hero h1 { font-size: 5.6rem; }
+      .about-hero p { font-size: 32px; max-width: 70rem; }
+      .about-bio { padding: 9rem 0; }
+      .about-bio h2 { font-size: 3.6rem; }
+      .about-bio p { font-size: 26px; }
+      .about-bio-grid { grid-template-columns: 1fr 640px; gap: 6rem; }
+      .about-metrics { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+      .about-metric-value { font-size: 4.4rem; }
+      .about-metric-label { font-size: 20px; }
+      .about-metric-unit { font-size: 18px; }
+      .about-metric-desc { font-size: 22px; }
+      .about-timeline h3 { font-size: 24px; }
+      .about-timeline-year { font-size: 28px; }
+      .about-timeline-event { font-size: 27px; }
+      .about-philosophy { padding: 12rem 0; }
+      .about-philosophy-content { max-width: 88rem; }
+      .about-philosophy-quote { font-size: 8rem; }
+      .about-philosophy-text { font-size: 2rem; }
+      .about-philosophy-name { font-size: 26px; }
+    }
   </style>
 </head>
 <body class="grain-overlay">

@@ -42,11 +42,30 @@ img, picture, video, canvas, svg {
 /* ── Section-level rendering hints ──
    content-visibility: auto skips rendering for off-screen sections,
    which is the single biggest win for long pages on scroll. The
-   contain-intrinsic-size keeps the scrollbar stable. */
+   contain-intrinsic-size keeps the scrollbar stable.
+
+   1px 800px is enough for a normal-density section, but very tall
+   sections (hero with calc(100vh - 72px), contact-hero with
+   height: 45vh) need a larger intrinsic on large screens so the
+   browser doesn't recompute scrollbar length mid-scroll. */
 main > section,
 main > .container > section {
   content-visibility: auto;
   contain-intrinsic-size: 1px 800px;
+}
+
+@media (min-width: 2560px) {
+  main > section,
+  main > .container > section {
+    contain-intrinsic-size: 1px 1400px;
+  }
+}
+
+@media (min-width: 3840px) {
+  main > section,
+  main > .container > section {
+    contain-intrinsic-size: 1px 2000px;
+  }
 }
 
 /* Reduce motion safety net for the compositor hints above. */

@@ -57,12 +57,48 @@
 /* 4K / 75" TV-class screens (2560px+) */
 @media (min-width: 2560px) {
   :root {
-    --container-max: 1800px;
+    --container-max: 2000px;
   }
 
   .container {
-    max-width: 1800px;
+    max-width: 2000px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+
+  html {
+    /* Bump the base font size so every rem-based value scales up.
+       16px → 18px (12.5% increase) — readable on 75" 8K displays
+       at normal viewing distance. */
+    font-size: 18px;
+  }
+
+  /* Comfortable line-height and paragraph spacing at 8K */
+  p { line-height: 1.75; }
+}
+
+/* 8K / 75" 8K TV-class screens (3840px+) */
+@media (min-width: 3840px) {
+  :root {
+    --container-max: 2400px;
+  }
+
+  .container {
+    max-width: 2400px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  html {
+    font-size: 22px;
+  }
+
+  p { line-height: 1.8; }
+}
+
+/* Very small height / portrait phones — keep loader usable */
+@media (max-height: 500px) and (orientation: landscape) {
+  html { font-size: 12px; }
 }
 
 /* Print styles */

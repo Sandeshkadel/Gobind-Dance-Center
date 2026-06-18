@@ -739,6 +739,40 @@
     .blog-article-image img {
       will-change: transform;
     }
+
+    /* ── 2560px / 4K tier ── */
+    @media (min-width: 2560px) {
+      .container { max-width: 2000px; padding-left: 2rem; padding-right: 2rem; }
+      .blog-header { padding: 4rem 0 7rem; }
+      .blog-header h1 { font-size: 4.4rem; }
+      .blog-header p { font-size: 22px; max-width: 42rem; }
+      .blog-featured-title { font-size: 2.2rem; }
+      .blog-featured-excerpt { font-size: 20px; }
+      .blog-featured-image { min-height: 480px; }
+      .blog-article-image { width: 360px; }
+      .blog-article-title { font-size: 1.7rem; }
+      .blog-article-excerpt { font-size: 18px; }
+      .blog-category { font-size: 14px; }
+      .blog-read-time { font-size: 16px; }
+      .blog-article-date { font-size: 14px; }
+    }
+
+    /* ── 3840px / 8K tier ── */
+    @media (min-width: 3840px) {
+      .container { max-width: 2400px; padding-left: 2.5rem; padding-right: 2.5rem; }
+      .blog-header { padding: 5rem 0 9rem; }
+      .blog-header h1 { font-size: 5.6rem; }
+      .blog-header p { font-size: 28px; max-width: 56rem; }
+      .blog-featured-title { font-size: 2.8rem; }
+      .blog-featured-excerpt { font-size: 26px; }
+      .blog-featured-image { min-height: 640px; }
+      .blog-article-image { width: 460px; }
+      .blog-article-title { font-size: 2.2rem; }
+      .blog-article-excerpt { font-size: 23px; }
+      .blog-category { font-size: 17px; }
+      .blog-read-time { font-size: 20px; }
+      .blog-article-date { font-size: 17px; }
+    }
   </style>
 </head>
 <body class="grain-overlay">
@@ -902,33 +936,6 @@
   <div id="footer-container"></div>
 
   <script>
-    // ── Toggle Featured Article ──
-    function toggleFeaturedArticle() {
-      const expanded = document.getElementById('featured-expanded');
-      if (expanded) {
-        expanded.classList.toggle('open');
-        // scroll into view if opening
-        if (expanded.classList.contains('open')) {
-          setTimeout(() => {
-            expanded.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 100);
-        }
-      }
-    }
-
-    // ── Toggle Regular Article ──
-    function toggleArticle(num) {
-      const expanded = document.getElementById('article-' + num + '-expanded');
-      if (expanded) {
-        expanded.classList.toggle('open');
-        // scroll into view if opening
-        if (expanded.classList.contains('open')) {
-          setTimeout(() => {
-            expanded.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 100);
-        }
-      }
-    }
 
     // ── Reveal on scroll ──
     document.addEventListener('DOMContentLoaded', function() {

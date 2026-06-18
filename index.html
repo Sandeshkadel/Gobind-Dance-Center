@@ -1384,6 +1384,36 @@
             }
         }
 
+        /* ── 8K / 75" 8K TV tier ──
+           Promotes the marquee and global layout for ultra-wide displays
+           so the page doesn't feel cramped on a 75" 8K screen. */
+        @media (min-width: 2560px) {
+            :root {
+                --container-max: 2000px;
+            }
+        }
+
+        @media (min-width: 3840px) {
+            :root {
+                --container-max: 2400px;
+            }
+
+            .marquee-track {
+                gap: 3rem;
+            }
+
+            .container {
+                max-width: var(--container-max);
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
+            }
+
+            /* Hero image can finally breathe on 8K */
+            .hero-image-wrapper {
+                max-width: 720px;
+            }
+        }
+
         /* ============================================================
            TESTIMONIALS
            ============================================================ */

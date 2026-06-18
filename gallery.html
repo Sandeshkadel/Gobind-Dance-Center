@@ -178,6 +178,32 @@
     a, a:hover {
       text-decoration: none;
     }
+
+    /* ── 2560px / 4K tier ── */
+    @media (min-width: 2560px) {
+      .container { max-width: 2000px; padding-left: 2rem; padding-right: 2rem; }
+      .gallery-header { padding: 6rem 0; }
+      .gallery-header h1 { font-size: 4.4rem; }
+      .gallery-header p { font-size: 22px; max-width: 42rem; }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+      .gallery-filter-btn { font-size: 14px; padding: 0.9rem 1.8rem; }
+      .gallery-item-overlay { padding: 1.4rem; }
+      .gallery-item-label { font-size: 14px; }
+      .gallery-desc { font-size: 15px; }
+    }
+
+    /* ── 3840px / 8K tier ── */
+    @media (min-width: 3840px) {
+      .container { max-width: 2400px; padding-left: 2.5rem; padding-right: 2.5rem; }
+      .gallery-header { padding: 8rem 0; }
+      .gallery-header h1 { font-size: 5.6rem; }
+      .gallery-header p { font-size: 28px; max-width: 56rem; }
+      .gallery-grid { grid-template-columns: repeat(5, 1fr); gap: 3rem; }
+      .gallery-filter-btn { font-size: 17px; padding: 1.1rem 2.2rem; }
+      .gallery-item-overlay { padding: 1.8rem; }
+      .gallery-item-label { font-size: 17px; }
+      .gallery-desc { font-size: 19px; }
+    }
   </style>
 </head>
 <body class="grain-overlay">
