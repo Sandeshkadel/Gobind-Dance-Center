@@ -424,16 +424,6 @@
             }
         }
 
-        .hero-image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
-            height: 6rem;
-            border-radius: 0 0 4px 4px;
-        }
-
         .hero-image-card {
             position: absolute;
             bottom: -1.25rem;
@@ -444,17 +434,12 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 24px;
             padding: 0.9rem 1.6rem 0.85rem;
-            box-shadow:
-              0 18px 40px rgba(42, 58, 140, 0.35),
-              0 4px 10px rgba(0, 0, 0, 0.10),
-              inset 0 1px 0 rgba(255, 255, 255, 0.20);
             min-width: 150px;
             overflow: hidden;
             isolation: isolate;
             transform: translateY(0) rotate(-2deg);
             transition:
               transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.5s ease,
               border-color 0.4s ease,
               background 0.5s ease;
         }
@@ -1679,7 +1664,6 @@
                     <div class="hero-image-container fade-in-up" style="animation-delay: 0.2s;">
                         <div class="hero-image-wrapper">
                             <img src="assets/images/Gobind.jpg" alt="Gobind Rai choreographer portrait" class="hero-image" />
-                            <div class="hero-image-overlay"></div>
 
                             <!-- 30+ Years Card -->
                             <div class="hero-image-card">
