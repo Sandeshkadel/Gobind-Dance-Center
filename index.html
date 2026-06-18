@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gobind Dance Center - Learn from Gobind Rai</title>
+    <meta name="description" content="From Kollywood feature film sets to the heart of New York City. Master traditional folk rhythms, classical foundations, and elite commercial screen choreography." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="assets/icons/Febicone.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/components/navbar.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/components/forms.css" />
+    <link rel="stylesheet" href="css/components/cards.css" />
+    <link rel="stylesheet" href="css/loader.css" />
+
+    <style>
+        /* ============================================================
+           ROOT / VARIABLES
+           ============================================================ */
+        :root {
+            --container-max: 1440px;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        /* ============================================================
+           HERO SECTION
+           ============================================================ */
+        .hero {
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #f1f3f5;
+            padding: 0.5rem 0 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 1rem 0 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 0 0 2.5rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero {
+                padding: 1.5rem 0 4rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero {
+                padding: 2.5rem 0 5rem;
+            }
+        }
+
+        .hero-bg-1 {
+            position: absolute;
+            top: 5rem;
+            right: 0;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(228, 138, 36, 0.05);
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+
+        .hero-bg-2 {
+            position: absolute;
+            bottom: 5rem;
+            left: 0;
+            width: 20rem;
+            height: 20rem;
+            background: rgba(228, 138, 36, 0.03);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .hero-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        @media (max-width: 1023px) {
+            .hero-content {
+                position: relative;
+                top: 0px;
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                gap: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #E48A24;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            padding: 0.375rem 1rem;
+            border: 1px solid #EEEEEE;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: #E48A24;
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            color: #2A3A8C;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.05rem;
+            width: 100%;
+            font-size: 2.4rem;
+        }
+
+        @media (min-width: 480px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 3.4rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: clamp(3.8rem, 7vw, 4.7rem);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-title {
+                font-size: 6rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero-title {
+                font-size: 7rem;
+            }
+        }
+
+        .hero-title-line {
+            display: block;
+            line-height: 1.15;
+            word-break: break-word;
+        }
+        
+
+        .hero-title-accent,
+        .hero-title-accent2 {
+            font-style: normal;
+            font-weight: 400;
+            color: rgba(228, 138, 36, 0.8);
+            margin-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title-accent,
+            .hero-title-accent2 {
+                margin-left: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title-accent,
+            .hero-title-accent2 {
+                margin-left: 0px;
+            }
+        }
+
+        .hero-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(42, 58, 140, 0.7);
+            max-width: 90rem;
+            margin-bottom: 1.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-description {
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-description {
+                font-size: 21px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-description {
+                font-size: 23px;
+                max-width: 38rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero-description {
+                font-size: 25px;
+                max-width: 44rem;
+            }
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.875rem 2.25rem;
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #E48A24;
+            color: #FFFFFF;
+            border: 2px solid #E48A24;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: #2A3A8C;
+            border-color: #2A3A8C;
+            color: #FFFFFF;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-text {
+                position: relative;
+                top: -50px;
+            }
+        }
+
+        /* ============================================================
+           HERO IMAGE — visible on ALL screens
+           ============================================================ */
+        .hero-image-container {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image-container {
+                justify-content: flex-end;
+            }
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+        }
+
+        @media (min-width: 640px) {
+            .hero-image-wrapper {
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image-wrapper {
+                max-width: 420px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-image-wrapper {
+                max-width: 480px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero-image-wrapper {
+                max-width: 540px;
+            }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+            height: 6rem;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .hero-image-card {
+            height: 4.9rem;
+            position: absolute;
+            bottom: -0.75rem;
+            left: 0.5rem;
+            background: #2A3A8C;
+            border: 1px solid #EEEEEE;
+            border-radius: 10px;
+            padding: 0.5rem 2rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            min-width: 120px;
+        }
+
+        @media (min-width: 480px) {
+            .hero-image-card {
+                left: 0.5rem;
+                padding: 0.6rem 2.5rem;
+                min-width: 140px;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .hero-image-card {
+                left: 1rem;
+                padding: 0.7rem 3rem;
+                min-width: 160px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image-card {
+                left: -2rem;
+                padding: 0.7rem 4rem;
+                min-width: 180px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-image-card {
+                left: -2.5rem;
+                padding: 0.8rem 4.1rem;
+                min-width: 200px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero-image-card {
+                padding: 0.9rem 4.25rem;
+                min-width: 220px;
+            }
+        }
+
+        .hero-image-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-color: #2A3A8C;
+        }
+
+        .hero-image-card-value {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            line-height: 1;
+        }
+
+        @media (min-width: 640px) {
+            .hero-image-card-value {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image-card-value {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-image-card-value {
+                font-size: 2.1rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero-image-card-value {
+                font-size: 1.85rem;
+            }
+        }
+
+        .hero-image-card-label {
+            font-size: 8px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #E48A24;
+            margin-top: 0.1rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-image-card-label {
+                font-size: 9px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image-card-label {
+                font-size: 9.5px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-image-card-label {
+                font-size: 10.5px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero-image-card-label {
+                font-size: 11.5px;
+            }
+        }
+
+        .hero-badge-award {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background: #EEEEEE;
+            color: #E48A24;
+            border: 1px solid #EEEEEE;
+            padding: 0.4rem 0.55rem;
+            border-radius: 10px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+        }
+
+        @media (min-width: 480px) {
+            .hero-badge-award {
+                padding: 0.45rem 0.6rem;
+                right: -0.5rem;
+                top: -0.5rem;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .hero-badge-award {
+                padding: 0.5rem 0.65rem;
+                right: -0.5rem;
+                top: -0.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-badge-award {
+                padding: 0.55rem 0.75rem;
+                right: -1rem;
+                top: -0.5rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero-badge-award {
+                padding: 0.65rem 0.85rem;
+            }
+            .hero-badge-award svg {
+                width: 19px;
+                height: 19px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero-badge-award {
+                padding: 0.75rem 0.95rem;
+            }
+            .hero-badge-award svg {
+                width: 21px;
+                height: 21px;
+            }
+        }
+
+        .hero-badge-award:hover {
+            transform: translateY(-3px) rotate(-3deg);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.08);
+            background: #E48A24;
+            color: #FFFFFF;
+            border-color: #E48A24;
+        }
+
+        .hero-badge-award svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        @media (min-width: 640px) {
+            .hero-badge-award svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-badge-award svg {
+                width: 17px;
+                height: 17px;
+            }
+        }
+
+        /* ============================================================
+           STATS SECTION
+           ============================================================ */
+        .stats {
+            border: none;
+            background: transparent;
+        }
+
+        .container1 {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #2A3A8C;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                padding: 0 2rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .stats-grid {
+                padding: 0 4rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .stats-grid {
+                padding: 0 6rem;
+            }
+        }
+
+        .stats-item {
+            padding: 2.5rem 0.5rem;
+            text-align: center;
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stats-item:first-child {
+            border-left: none;
+        }
+
+        @media (min-width: 768px) {
+            .stats-item {
+                padding: 3.5rem 1rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .stats-item {
+                padding: 4.5rem 1.5rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .stats-item {
+                padding: 5.5rem 2rem;
+            }
+        }
+
+        .stats-icon {
+            color: #E48A24;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .stats-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: #E48A24;
+            stroke-width: 2;
+            fill: none;
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .stats-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .stats-icon svg {
+                width: 44px;
+                height: 44px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .stats-icon svg {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .stats-item:hover .stats-icon svg {
+            transform: scale(1.1);
+        }
+
+        .stats-item:nth-child(2) .stats-icon svg {
+            stroke-width: 2.2;
+        }
+
+        .stats-value {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: #FFFFFF;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-value {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .stats-value {
+                font-size: 2.75rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .stats-value {
+                font-size: 3.25rem;
+            }
+        }
+
+        .stats-label {
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (min-width: 768px) {
+            .stats-label {
+                font-size: 10px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .stats-label {
+                font-size: 11px;
+            }
+        }
+
+        /* ============================================================
+           WHAT WE OFFER — MARQUEE CARDS
+           ============================================================ */
+        .offer-section {
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .offer-section {
+                padding: 8rem 0;
+            }
+        }
+
+        .offer-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .offer-header-badge {
+            display: inline-block;
+            font-size: 15px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #E48A24;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .offer-header-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #2A3A8C;
+            max-width: 36rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .offer-header-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .offer-header-title {
+                font-size: 3rem;
+            }
+        }
+
+        .offer-title-accent {
+            font-style: normal;
+            font-weight: 400;
+            color: rgba(42, 58, 140, 0.7);
+        }
+
+        .offer-top-action {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .offer-main-btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #E48A24;
+            color: white;
+            border: 2px solid #E48A24;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .offer-main-btn:hover {
+            background: #2A3A8C;
+            border-color: #2A3A8C;
+            color: white;
+        }
+
+        /* ── MARQUEE ── */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 1rem 0;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: none;
+        }
+
+        .marquee-container:active {
+            cursor: grabbing;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1.75rem;
+            width: max-content;
+            will-change: transform;
+            transform: translateX(0px);
+        }
+
+        /* ── OFFER CARD ── */
+        .offer-card {
+            flex: 0 0 auto;
+            width: 300px;
+            background: #f1f3f5;
+            border: 1px solid #EEEEEE;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .offer-card:hover {
+            border-color: #E48A24;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .offer-card-image-wrap {
+            width: 100%;
+            height: 175px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #e8d5c4;
+            line-height: 0;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .offer-card-image-wrap {
+                height: 200px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .offer-card-image-wrap {
+                height: 220px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .offer-card-image-wrap {
+                height: 250px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .offer-card-image-wrap {
+                height: 280px;
+            }
+        }
+
+        .offer-card-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .offer-card:hover .offer-card-image-wrap img {
+            transform: scale(1.02);
+        }
+
+        .offer-card-body {
+            padding: 0.75rem 0.95rem 0.95rem;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            background: #f1f3f5;
+        }
+
+        @media (min-width: 768px) {
+            .offer-card-body {
+                padding: 0.9rem 1.1rem 1.1rem;
+                gap: 0.2rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .offer-card-body {
+                padding: 1.1rem 1.4rem 1.4rem;
+                gap: 0.25rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .offer-card-body {
+                padding: 1.3rem 1.6rem 1.6rem;
+                gap: 0.3rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .offer-card-body {
+                padding: 1.6rem 1.9rem 1.9rem;
+                gap: 0.4rem;
+            }
+        }
+
+        .offer-card-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2A3A8C;
+            margin: 0;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        @media (min-width: 768px) {
+            .offer-card-title {
+                font-size: 1.15rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .offer-card-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .offer-card-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .offer-card-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        .offer-card-desc {
+            font-size: 12px;
+            line-height: 1.4;
+            color: rgba(42, 58, 140, 0.75);
+            margin: 0;
+            flex: 0 1 auto;
+        }
+
+        @media (min-width: 768px) {
+            .offer-card-desc {
+                font-size: 13.5px;
+                line-height: 1.45;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .offer-card-desc {
+                font-size: 14.5px;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .offer-card-desc {
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .offer-card-desc {
+                font-size: 18px;
+                line-height: 1.5;
+            }
+        }
+
+        .offer-card-btn {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            background: #E48A24;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.25s ease, transform 0.15s ease;
+            font-weight: 500;
+            margin-top: 0.05rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 5;
+        }
+
+        .offer-card-btn:hover {
+            background: #2A3A8C;
+            transform: scale(0.97);
+        }
+
+        @media (min-width: 768px) {
+            .offer-card-btn {
+                font-size: 10px;
+                padding: 0.4rem 0.9rem;
+                margin-top: 0.1rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .offer-card-btn {
+                font-size: 10.5px;
+                padding: 0.45rem 1rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .offer-card-btn {
+                font-size: 11.5px;
+                padding: 0.55rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .offer-card-btn {
+                font-size: 13px;
+                padding: 0.65rem 1.4rem;
+            }
+        }
+
+        .marquee-track {
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .marquee-track {
+                gap: 1.75rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .marquee-track {
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .marquee-track {
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .marquee-track {
+                gap: 2.25rem;
+            }
+        }
+
+        /* ============================================================
+           TESTIMONIALS
+           ============================================================ */
+        .testimonials {
+            background: rgba(241, 243, 245, 0.4);
+            border-top: 1px solid #E48A24;
+            border-bottom: 1px solid #E48A24;
+            padding: 6rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials {
+                padding: 8rem 0;
+            }
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .testimonials-badge {
+            display: inline-block;
+            font-size: 15px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #E48A24;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #2A3A8C;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonials-title {
+                font-size: 3rem;
+            }
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            background: #f1f3f5;
+            border: 1px solid #EEEEEE;
+            padding: 2rem 1.5rem;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: #E48A24;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            line-height: 1;
+            color: rgba(228, 138, 36, 0.25);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #2A3A8C;
+            margin-bottom: 1.25rem;
+        }
+
+        .testimonial-author-name {
+            font-weight: 600;
+            font-size: 15px;
+            color: #2A3A8C;
+        }
+
+        .testimonial-author-role {
+            font-size: 14px;
+            color: rgba(42, 58, 140, 0.7);
+        }
+
+        /* ============================================================
+           CTA BANNER
+           ============================================================ */
+        .cta-banner {
+            position: relative;
+            overflow: hidden;
+            padding: 7rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .cta-banner {
+                padding: 9rem 0;
+            }
+        }
+
+        .cta-banner-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .cta-banner-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cta-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .cta-banner-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+
+        .cta-banner-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .cta-banner-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .cta-banner-title {
+                font-size: 3rem;
+            }
+        }
+
+        .cta-banner-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 36rem;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-banner-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .cta-banner-btn-primary {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 0.875rem 2rem;
+            background: #E48A24;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+            border: 2px solid #E48A24;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-banner-btn-primary:hover {
+            background: #2A3A8C;
+            border-color: #2A3A8C;
+        }
+
+        .cta-banner-btn-secondary {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 0.875rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-banner-btn-secondary:hover {
+            border-color: white;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body class="grain-overlay">
+
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+    <br />
+
+    <main class="pt-[110px]">
+
+        <!-- ==========================================================
+        HERO SECTION
+        ========================================================== -->
+        <section class="hero">
+            <div class="hero-bg-1"></div>
+            <div class="hero-bg-2"></div>
+
+            <div class="hero-content">
+                <div class="hero-grid">
+                    <!-- Text Column -->
+                    <div class="hero-text fade-in-left">
+                        <h1 class="hero-title">
+                            <span class="hero-title-line">Legacy in Motion:</span>
+                            <span class="hero-title-line hero-title-accent">Learn from</span>
+                            <span class="hero-title-line hero-title-accent2">Gobind Rai.</span>
+                        </h1>
+                        <p class="hero-description">
+                            From Kollywood feature film sets to the heart of New York City. Master traditional folk rhythms, classical foundations, and elite commercial screen choreography from a multi-award-winning director.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="course.html" class="btn btn-primary">Choose Curriculum</a>
+                        </div>
+                    </div>
+
+                    <!-- Image Column — visible on ALL screens -->
+                    <div class="hero-image-container fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="hero-image-wrapper">
+                            <img src="assets/images/Gobind.jpg" alt="Gobind Rai choreographer portrait" class="hero-image" />
+                            <div class="hero-image-overlay"></div>
+
+                            <!-- 30+ Years Card -->
+                            <div class="hero-image-card">
+                                <p class="hero-image-card-value">30+</p>
+                                <p class="hero-image-card-label">Years of Mastery</p>
+                            </div>
+
+                            <!-- Award Badge -->
+                            <div class="hero-badge-award" aria-label="Award winner">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+        STATS SECTION
+        ========================================================== -->
+        <section class="stats">
+            <div class="container1">
+                <div class="stats-grid">
+                    <div class="stats-item stagger-item">
+                        <div class="stats-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6" />
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                            </svg>
+                        </div>
+                        <p class="stats-value"><span class="count-up" data-target="30" data-suffix="+">30+</span></p>
+                        <p class="stats-label">Years Experience</p>
+                    </div>
+                    <div class="stats-item stagger-item">
+                        <div class="stats-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E48A24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        <p class="stats-value"><span class="count-up" data-target="15" data-suffix="+">15+</span></p>
+                        <p class="stats-label">Stars Launched</p>
+                    </div>
+                    <div class="stats-item stagger-item">
+                        <div class="stats-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <p class="stats-value"><span class="count-up" data-target="200" data-suffix="+">200+</span></p>
+                        <p class="stats-label">Students Trained</p>
+                    </div>
+                    <div class="stats-item stagger-item">
+                        <div class="stats-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2 2 7l10 5 10-5-10-5z" />
+                                <path d="m2 17 10 5 10-5" />
+                                <path d="m2 12 10 5 10-5" />
+                            </svg>
+                        </div>
+                        <p class="stats-value"><span class="count-up" data-target="50" data-suffix="+">50+</span></p>
+                        <p class="stats-label">Film Credits</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+        WHAT WE OFFER — MARQUEE (JS-driven, draggable)
+        ========================================================== -->
+        <section class="offer-section">
+            <div class="container">
+                <div class="offer-header reveal">
+                    <span class="offer-header-badge">What We Offer</span>
+                    <h2 class="offer-header-title">
+                        A Curriculum Rooted in<br />
+                        <span class="offer-title-accent">Tradition &amp; Innovation</span>
+                    </h2>
+                </div>
+                <div class="offer-top-action">
+                    <a href="course.html" class="offer-main-btn">Our Courses</a>
+                </div>
+            </div>
+
+            <!-- Marquee — full width -->
+            <div class="marquee-container" id="marqueeContainer">
+                <div class="marquee-track" id="marqueeTrack">
+                    <!-- Cards injected by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+        TESTIMONIALS
+        ========================================================== -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="testimonials-header reveal">
+                    <span class="testimonials-badge">Testimonials</span>
+                    <h2 class="testimonials-title">Words from Our Community</h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal-scale">
+                        <span class="testimonial-quote">&ldquo;</span>
+                        <p class="testimonial-text">Gobind sir shaped my understanding of screen presence. Every movement he taught carried meaning beyond technique.</p>
+                        <div class="testimonial-author">
+                            <p class="testimonial-author-name">Rekha Thapa</p>
+                            <p class="testimonial-author-role">Actress &amp; Producer</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card reveal-scale" style="animation-delay: 0.1s;">
+                        <span class="testimonial-quote">&ldquo;</span>
+                        <p class="testimonial-text">The Angel Kalakendra was where I discovered that dance is not performance — it is conversation. Guru Gobind gave me that language.</p>
+                        <div class="testimonial-author">
+                            <p class="testimonial-author-name">Arunima Lamsal</p>
+                            <p class="testimonial-author-role">Film Artist</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card reveal-scale" style="animation-delay: 0.2s;">
+                        <span class="testimonial-quote">&ldquo;</span>
+                        <p class="testimonial-text">Moving to NYC, I feared losing touch with my culture. GDA gave me roots in a foreign city. Every class feels like home.</p>
+                        <div class="testimonial-author">
+                            <p class="testimonial-author-name">Priya Sharma</p>
+                            <p class="testimonial-author-role">GDA Student, NYC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+        CTA BANNER
+        ========================================================== -->
+        <section class="cta-banner">
+            <div class="cta-banner-bg parallax-container" data-speed="0.1">
+                <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/702569886_27188194700813827_8500361184010729467_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx2048x1366&amp;ctp=s2048x1366&amp;_nc_cat=104&amp;ccb=1-7&amp;_nc_sid=833d8c&amp;_nc_ohc=fHQIvbfqoYQQ7kNvwFPBvh0&amp;_nc_oc=AdrvUOhrRa8hQrtxI73GDNUYPQxHuP6IE30iYjZ6dc4ZhtR5ddoiDDxjHblq-xQ-nQRDeUl6gXKDSDZg3Igps2dw&amp;_nc_zt=23&amp;_nc_ht=scontent.fktm3-1.fna&amp;_nc_gid=rV6x-PK-vuZOdNFDRI0ugw&amp;_nc_ss=7b2a8&amp;oh=00_Af_1SsESrplSL4d3gou9XAiLPUtoBXsRTxC5T4BfYOw-ZA&amp;oe=6A36BF78" alt="Dance studio" />
+            </div>
+            <div class="cta-banner-overlay"></div>
+            <div class="cta-banner-content reveal">
+                <h2 class="cta-banner-title">Begin Your Journey Today</h2>
+                <p class="cta-banner-desc">
+                    Whether you're a first-time dancer or a seasoned professional, Gobind Dance Academy welcomes you to explore the art of movement.
+                </p>
+                <div class="cta-banner-actions">
+                    <a href="book-meeting.html" class="cta-banner-btn-primary">Book a Free Trial</a>
+                    <a href="contact.html" class="cta-banner-btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="js/emailjs-config.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/components/scroll.js"></script>
+    <script src="js/components/modals.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- ============================================================
+    MARQUEE INIT — JavaScript-driven with drag & auto-scroll
+    ============================================================ -->
+ <script>
+    (function() {
+        'use strict';
+
+        // ─── Card Data ──────────────────────────────────────────────
+        const cardsData = [{
+            img: 'assets/images/Image7.jpg',
+            title: 'Kids Dance Courses',
+            desc: 'Fun dance classes for kids to learn movement, rhythm, and confidence.'
+        }, {
+            img: 'assets/images/Culturaldance.jpg',
+            title: 'Nepali Cultural Dance',
+            desc: 'Explore and perform traditional Nepali cultural and folk dances.'
+        }, {
+            img: 'assets/images/image1.jpg',
+            title: 'Semi-Classical Basic',
+            desc: 'Learn the basics of semi-classical dance with elegance and rhythm.'
+        }, {
+            img: 'assets/images/Movie.jpg',
+            title: 'Choreography for Events',
+            desc: 'Create and manage choreography for events and performances.'
+        }, {
+            img: 'assets/images/Image5.jpg',
+            title: 'Advance Special Classes',
+            desc: 'Advanced dance training for skill enhancement and professional growth.'
+        }, {
+            img: 'assets/images/Direction.jpg',
+            title: 'Dance Video Direction',
+            desc: 'Learn dance video direction, composition, and creative presentation.'
+        }];
+
+        // ─── Card HTML builder ──────────────────────────────────────
+        function buildCardHTML(data, index) {
+            return `
+                <div class="offer-card" data-index="${index}">
+                    <div class="offer-card-image-wrap">
+                        <img src="${data.img}" alt="${data.title}" loading="lazy" />
+                    </div>
+                    <div class="offer-card-body">
+                        <h3 class="offer-card-title">${data.title}</h3>
+                        <p class="offer-card-desc">${data.desc}</p>
+                        <a href="course.html" class="offer-card-btn">View More</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ─── DOM refs ──────────────────────────────────────────────
+        const container = document.getElementById('marqueeContainer');
+        const track = document.getElementById('marqueeTrack');
+        if (!container || !track) return;
+
+        // ─── Build cards (2x for seamless loop) ──────────────────
+        let allHTML = '';
+        for (let pass = 0; pass < 2; pass++) {
+            cardsData.forEach((data, i) => {
+                allHTML += buildCardHTML(data, i + pass * cardsData.length);
+            });
+        }
+        track.innerHTML = allHTML;
+
+        // ─── State ──────────────────────────────────────────────────
+        let position = 0;
+        let isAnimating = true;
+        let isDragging = false;
+        let startX = 0;
+        let startPosition = 0;
+        let animationId = null;
+        let speed = 0.6;
+        let lastTimestamp = 0;
+        let trackWidth = 0;
+        let cardWidth = 0;
+        let gap = 0;
+
+        // ─── Measure track ─────────────────────────────────────────
+        function measureTrack() {
+            const firstCard = track.querySelector('.offer-card');
+            if (!firstCard) return;
+            const rect = firstCard.getBoundingClientRect();
+            cardWidth = rect.width;
+            const style = window.getComputedStyle(track);
+            gap = parseFloat(style.gap) || 20;
+            const totalCards = cardsData.length;
+            trackWidth = (cardWidth + gap) * totalCards;
+            if (position < -trackWidth) position = -trackWidth;
+            if (position > 0) position = 0;
+            track.style.transform = 'translateX(' + position + 'px)';
+        }
+
+        // ─── Animation loop ────────────────────────────────────────
+        function animate(timestamp) {
+            if (!isAnimating || isDragging) {
+                animationId = requestAnimationFrame(animate);
+                return;
+            }
+            if (lastTimestamp === 0) lastTimestamp = timestamp;
+            const delta = Math.min(timestamp - lastTimestamp, 30);
+            lastTimestamp = timestamp;
+
+            position -= speed * (delta / 16);
+            if (position <= -trackWidth) position += trackWidth;
+            if (position > 0) position = 0;
+            if (position < -trackWidth) position = -trackWidth;
+
+            track.style.transform = 'translateX(' + position + 'px)';
+            animationId = requestAnimationFrame(animate);
+        }
+
+        function startAnimation() {
+            if (animationId) return;
+            isAnimating = true;
+            lastTimestamp = 0;
+            animationId = requestAnimationFrame(animate);
+        }
+
+        function stopAnimation() {
+            isAnimating = false;
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        }
+
+        // ─── Drag handlers (mouse) ───────────────────────────────
+        function onDragStart(e) {
+            // Ignore if clicking on the button or any link
+            if (e.target.closest('.offer-card-btn') || e.target.closest('a')) return;
+
+            isDragging = true;
+            startX = e.clientX;
+            const style = window.getComputedStyle(track);
+            const matrix = style.transform;
+            if (matrix !== 'none') {
+                const values = matrix.match(/matrix\((.+)\)/);
+                if (values) {
+                    const parts = values[1].split(', ');
+                    startPosition = parseFloat(parts[4]) || 0;
+                    position = startPosition;
+                } else {
+                    startPosition = position;
+                }
+            } else {
+                startPosition = position;
+            }
+            container.style.cursor = 'grabbing';
+            e.preventDefault();
+        }
+
+        function onDragMove(e) {
+            if (!isDragging) return;
+            const delta = e.clientX - startX;
+            let newPos = startPosition + delta;
+            if (newPos > 0) newPos = 0;
+            if (newPos < -trackWidth) newPos = -trackWidth;
+            position = newPos;
+            track.style.transform = 'translateX(' + position + 'px)';
+            e.preventDefault();
+        }
+
+        function onDragEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            container.style.cursor = 'grab';
+            if (position > 0) {
+                position = 0;
+                track.style.transform = 'translateX(0px)';
+            } else if (position < -trackWidth) {
+                position = -trackWidth;
+                track.style.transform = 'translateX(' + position + 'px)';
+            }
+            if (isAnimating) {
+                lastTimestamp = 0;
+                if (!animationId) {
+                    animationId = requestAnimationFrame(animate);
+                }
+            }
+        }
+
+        // ─── Touch handlers ──────────────────────────────────────────
+        function onTouchStart(e) {
+            const touch = e.touches[0];
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (target && (target.closest('.offer-card-btn') || target.closest('a'))) return;
+
+            isDragging = true;
+            startX = touch.clientX;
+            const style = window.getComputedStyle(track);
+            const matrix = style.transform;
+            if (matrix !== 'none') {
+                const values = matrix.match(/matrix\((.+)\)/);
+                if (values) {
+                    const parts = values[1].split(', ');
+                    startPosition = parseFloat(parts[4]) || 0;
+                    position = startPosition;
+                } else {
+                    startPosition = position;
+                }
+            } else {
+                startPosition = position;
+            }
+            e.preventDefault();
+        }
+
+        function onTouchMove(e) {
+            if (!isDragging) return;
+            const touch = e.touches[0];
+            const delta = touch.clientX - startX;
+            let newPos = startPosition + delta;
+            if (newPos > 0) newPos = 0;
+            if (newPos < -trackWidth) newPos = -trackWidth;
+            position = newPos;
+            track.style.transform = 'translateX(' + position + 'px)';
+            e.preventDefault();
+        }
+
+        function onTouchEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            if (position > 0) {
+                position = 0;
+                track.style.transform = 'translateX(0px)';
+            } else if (position < -trackWidth) {
+                position = -trackWidth;
+                track.style.transform = 'translateX(' + position + 'px)';
+            }
+            if (isAnimating) {
+                lastTimestamp = 0;
+                if (!animationId) {
+                    animationId = requestAnimationFrame(animate);
+                }
+            }
+        }
+
+        // ─── Attach events ──────────────────────────────────────────
+        container.addEventListener('mousedown', onDragStart);
+        window.addEventListener('mousemove', onDragMove);
+        window.addEventListener('mouseup', onDragEnd);
+
+        container.addEventListener('touchstart', onTouchStart, { passive: false });
+        window.addEventListener('touchmove', onTouchMove, { passive: false });
+        window.addEventListener('touchend', onTouchEnd, { passive: false });
+
+        // Prevent context menu on long press
+        container.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // ─── Handle resize ──────────────────────────────────────────
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                measureTrack();
+                if (position > 0) position = 0;
+                if (position < -trackWidth) position = -trackWidth;
+                track.style.transform = 'translateX(' + position + 'px)';
+            }, 100);
+        });
+
+        // ─── Init ──────────────────────────────────────────────────
+        setTimeout(function() {
+            measureTrack();
+            if (position > 0) position = 0;
+            if (position < -trackWidth) position = -trackWidth;
+            track.style.transform = 'translateX(' + position + 'px)';
+            startAnimation();
+        }, 50);
+
+        if (document.fonts) {
+            document.fonts.ready.then(function() {
+                measureTrack();
+                if (position > 0) position = 0;
+                if (position < -trackWidth) position = -trackWidth;
+                track.style.transform = 'translateX(' + position + 'px)';
+            });
+        }
+
+        console.log('🎯 Marquee initialized (JS-driven, draggable)');
+
+    })();
+</script>
+
+    <script src="js/loader.js"></script>
+</body>
+</html>

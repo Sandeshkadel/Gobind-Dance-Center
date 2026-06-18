@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blog Article - Gobind Dance Center</title>
+  <meta name="description" content="Classical foundations for dancers — essays and reflections from Gobind Dance Academy.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
+  <link rel="icon" type="image/png" href="assets/icons/Febicone.png">
+ <link rel="stylesheet" href="js/components/navbar.js">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/loader.css">
+
+  <style>
+    /* Page header */
+    .article-header {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .article-header {
+        padding: 6rem 0;
+      }
+    }
+
+    .article-badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #E48A24;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .article-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #2A3A8C;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .article-header h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .article-header h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .article-header p {
+      font-size: 15px;
+      color: rgba(42, 58, 140, 0.7);
+      max-width: 48rem;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Content */
+    .article {
+      padding-bottom: 3rem;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 1024px) {
+      .article-grid {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+      }
+    }
+
+.article-hero {
+      overflow: hidden;
+      border-radius: 20px;
+      background: #f1f3f5;
+      box-shadow: var(--shadow-sm);
+      min-height: 340px;
+    }
+
+    @media (max-width: 480px) {
+      .article-hero {
+        min-height: 220px;
+        border-radius: 14px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+      .article-hero {
+        min-height: 460px;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      .article-hero {
+        min-height: 560px;
+      }
+    }
+
+    .article-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .article-back-wrapper {
+      margin-bottom: 1.25rem;
+    }
+
+    .article-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.25rem;
+      background: #E48A24;
+      color: #FFFFFF;
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .article-back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: #2A3A8C;
+    }
+
+    .article-back-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+.article-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .article-body p {
+      font-size: 16px;
+      color: rgba(42, 58, 140, 0.7);
+      line-height: 1.9;
+    }
+
+    @media (min-width: 1920px) {
+      .article-body p {
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      .article-body p {
+        font-size: 20px;
+      }
+    }
+
+    .article-section-title {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #2A3A8C;
+      font-weight: 500;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* Image grid (no cropping) */
+    .article-media-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .article-media-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .media-tile {
+      border: 1px solid #EEEEEE;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f1f3f5;
+    }
+
+    .media-tile img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain; /* never crop */
+      background: rgba(241, 243, 245, 0.2);
+    }
+
+    .media-caption {
+      padding: 0.9rem 1rem;
+      font-size: 13px;
+      color: rgba(42, 58, 140, 0.7);
+      line-height: 1.4;
+    }
+
+    /* Featured explore */
+    .article-explore {
+      border-top: 1px solid #E48A24;
+      padding-top: 3.25rem;
+      margin-top: 2.75rem;
+    }
+
+    .article-explore h2 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      color: #2A3A8C;
+      font-size: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .explore-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    .explore-card {
+      border: 1px solid #EEEEEE;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f1f3f5;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .explore-card:hover {
+      transform: translateY(-4px);
+      border-color: #E48A24;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .explore-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .explore-info {
+      padding: 1rem 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .explore-tag {
+      display: inline-flex;
+      width: fit-content;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #E48A24;
+      background: rgba(228, 138, 36, 0.1);
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    .explore-info h4 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-weight: 500;
+      color: #2A3A8C;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body class="grain-overlay">
+<div id="navbar-container"></div>
+<br>
+<br>
+  <main class="pt-[110px]">
+    <div class="container">
+      <header class="article-header">
+        <div class="article-back-wrapper">
+          <a href="blog.html" class="article-back-btn" aria-label="Go back to blog">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+            Go back
+          </a>
+        </div>
+
+        <span class="article-badge reveal">Education</span>
+        <h1 class="reveal">Why Every Dancer Should Study Classical Foundations</h1>
+        <p class="reveal" style="animation-delay: 0.1s;">
+          Before innovation comes understanding — build your movement vocabulary from the ground up.
+        </p>
+      </header>
+
+
+      <section class="article reveal">
+        <div class="article-grid">
+          <div class="article-hero reveal">
+            <img
+              src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=1400&h=800&fit=crop"
+              alt="Classical mudra pose"
+            >
+          </div>
+
+          <div class="article-body">
+            <p class="reveal" style="animation-delay: 0.05s;">
+              In an era where viral choreography can be learned in an afternoon, the case for spending months — even years — on classical foundations may seem counterintuitive. But ask any choreographer who has worked across genres, and they will tell you the same thing: classical training is not a style. It is a language.
+            </p>
+
+            <p class="reveal" style="animation-delay: 0.15s;">
+              The mudras of Bharatanatyam, the footwork patterns of Kathak, the postural discipline of Nepali folk — these are not relics of a past era. They are technologies of the body, refined over centuries, that give dancers access to a range of expression that contemporary training alone cannot provide.
+            </p>
+
+            <p class="reveal" style="animation-delay: 0.18s;">
+              Rai often says: “Learn the rules like a master so you can break them like an artist.” Classical foundations teach alignment, rhythm precision, and storytelling through gesture. Once absorbed, a dancer can infuse hip-hop with mudra-like hand articulation or add folk footwork to modern sequences.
+            </p>
+
+            <p class="reveal" style="animation-delay: 0.2s;">
+              Beyond technique, classical forms instill patience and respect for lineage. In a fast‑paced digital world, that depth creates artists, not just entertainers. Whether you dream of Broadway, Bollywood, or concert dance, classical training is your superpower.
+            </p>
+            <p class="reveal" style="animation-delay: 0.28s;">
+              Start small: attend a workshop, practice a basic adavu, learn a traditional sequence. Your movement vocabulary will thank you.
+            </p>
+          </div>
+        </div>
+
+        <div class="article-explore">
+          <h2 class="reveal">Explore More</h2>
+          <div class="explore-grid">
+            <a class="explore-card reveal" href="blog-post-1.html">
+              <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=800&h=800&fit=crop" alt="Folk">
+              <div class="explore-info">
+                <span class="explore-tag">Culture</span>
+                <h4>Nepalese Folk Rhythms</h4>
+              </div>
+            </a>
+            <a class="explore-card reveal" href="blog-post-2.html">
+              <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=800&h=800&fit=crop" alt="Camera">
+              <div class="explore-info">
+                <span class="explore-tag">Technique</span>
+                <h4>The Choreographic Eye</h4>
+              </div>
+            </a>
+            <a class="explore-card reveal" href="blog-post-3.html">
+              <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&h=800&fit=crop" alt="Journey">
+              <div class="explore-info">
+                <span class="explore-tag">Story</span>
+                <h4>From Dharan to Elmhurst</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+  <script src="js/emailjs-config.js"></script>
+  <script src="js/utilities.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/footer.js"></script>
+  <script src="js/components/scroll.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/loader.js"></script>
+</body>
+</html>
+

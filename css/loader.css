@@ -1,0 +1,197 @@
+/**
+ * Global Website Loader — Gobind Dance Academy
+ * Isolated stylesheet. Every selector is prefixed with `gda-loader-` to guarantee
+ * zero collision with the navbar, footer, or any page-level CSS.
+ *
+ * Markup is auto-injected by js/loader.js — there is no HTML file to edit.
+ * To change the logo, edit `logoPath` at the top of js/loader.js.
+ */
+
+/* ─── Reset / box model ────────────────────────────────────────────────── */
+.gda-loader,
+.gda-loader *,
+.gda-loader *::before,
+.gda-loader *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Smooth fade-in so the loader never pops in cold ────────────────── */
+@keyframes gda-loader-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.gda-loader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* dynamic viewport — mobile browser UI safe */
+  z-index: 2147483647; /* max — above every existing layer on the site */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: auto; /* block clicks */
+  -webkit-tap-highlight-color: transparent;
+  isolation: isolate; /* contain stacking & blend modes */
+  animation: gda-loader-enter 220ms ease-out both;
+}
+
+/* ─── Backdrop (clean dark tint, light blur so it feels lighter) ──────── */
+.gda-loader__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%,
+      rgba(20, 14, 30, 0.55) 0%,
+      rgba(10, 6, 18, 0.72) 60%,
+      rgba(5, 3, 10, 0.82) 100%);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  opacity: 1;
+  transition: opacity 450ms ease-out;
+  will-change: opacity;
+}
+
+/* ─── Centered column: logo + dots ───────────────────────────────────── */
+.gda-loader__stack {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 2.5vw, 28px);
+  transform: translateZ(0); /* own compositor layer */
+  will-change: transform, opacity;
+  opacity: 0;
+  animation: gda-loader-stack-enter 360ms cubic-bezier(0.22, 1, 0.36, 1) 80ms forwards;
+}
+
+@keyframes gda-loader-stack-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Logo wrapper (small, refined, professional) ─────────────────────── */
+.gda-loader__logo-wrap {
+  position: relative;
+  width: clamp(80px, 13vw, 140px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity, filter;
+  filter: drop-shadow(0 0 14px rgba(228, 138, 36, 0.28))
+          drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+  /* Combined entrance + pulse using a single keyframe chain so they
+     don't fight each other. The pulse is the dominant loop; the
+     entrance is just the first cycle. */
+  animation: gda-loader-pulse 1400ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+/* ─── Logo image ──────────────────────────────────────────────────────── */
+.gda-loader__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* ─── Loop: VISIBLE zoom-in / zoom-out pulse (continues the whole time) ─ */
+@keyframes gda-loader-pulse {
+  0%   {
+    transform: scale(1);
+    filter: drop-shadow(0 0 14px rgba(228, 138, 36, 0.28))
+            drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+  }
+  50%  {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 28px rgba(228, 138, 36, 0.6))
+            drop-shadow(0 10px 26px rgba(0, 0, 0, 0.55));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 14px rgba(228, 138, 36, 0.28))
+            drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+  }
+}
+
+/* ─── Exit phase 1: SUBTLE zoom (not full-screen) ────────────────────── */
+@keyframes gda-loader-zoom-out {
+  0%   { transform: scale(1);    opacity: 1; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+.gda-loader.is-completing .gda-loader__stack {
+  animation: gda-loader-zoom-out 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.gda-loader.is-completing .gda-loader__logo-wrap {
+  animation: none; /* stop the pulse so the exit zoom is clean */
+}
+
+/* ─── Exit phase 2: backdrop fade ─────────────────────────────────────── */
+.gda-loader.is-leaving .gda-loader__backdrop {
+  opacity: 0;
+}
+
+/* Just before the node is removed we hide it so the page underneath
+   becomes interactive immediately. */
+.gda-loader.is-leaving {
+  visibility: hidden;
+  transition: visibility 0s linear 450ms;
+}
+
+/* ─── Accessibility: respect users who prefer reduced motion ──────────── */
+@media (prefers-reduced-motion: reduce) {
+  .gda-loader,
+  .gda-loader__stack,
+  .gda-loader__logo-wrap {
+    animation: none !important;
+  }
+  .gda-loader__stack {
+    opacity: 1;
+    transform: none;
+  }
+  .gda-loader__logo-wrap {
+    transform: none !important;
+    opacity: 1;
+  }
+}
+
+/* ─── Ultra-wide: keep logo modest (don't grow with viewport) ────────── */
+@media (min-width: 1920px) {
+  .gda-loader__logo-wrap {
+    width: 140px;
+  }
+}
+
+/* ─── Tiny phones: don't let the logo crowd the viewport ──────────────── */
+@media (max-width: 380px) {
+  .gda-loader__logo-wrap {
+    width: 80px;
+  }
+  .gda-loader__stack {
+    gap: 18px;
+  }
+}
+
+/* ─── Hard fallback for browsers without backdrop-filter ──────────────── */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .gda-loader__backdrop {
+    background: rgba(8, 5, 16, 0.92);
+  }
+}

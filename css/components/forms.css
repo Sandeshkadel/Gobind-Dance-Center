@@ -1,0 +1,486 @@
+/* ============================================
+   FORMS COMPONENT
+   ============================================ */
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 640px) {
+  .form-row-three {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* Form Label */
+.form-label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2A3A8C;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-label-required::after {
+  content: ' *';
+  color: #E48A24;
+}
+
+/* Form Input */
+.form-input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  color: #2A3A8C;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 360px) {
+  .form-input {
+    padding: 0.65rem 0.85rem;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .form-input {
+    padding: 0.9rem 1.15rem;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .form-input {
+    padding: 1.05rem 1.35rem;
+    font-size: 18px;
+  }
+}
+
+.form-input::placeholder {
+  color: rgba(42, 58, 140, 0.4);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #E48A24;
+  box-shadow: 0 0 0 1px rgba(228, 138, 36, 0.2);
+}
+
+.form-input.error {
+  border-color: #E48A24;
+}
+
+/* Form Select */
+.form-select {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  color: #2A3A8C;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23E48A24' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+@media (max-width: 360px) {
+  .form-select {
+    padding: 0.65rem 0.85rem;
+    font-size: 13px;
+    padding-right: 2.25rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .form-select {
+    padding: 0.9rem 1.15rem;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .form-select {
+    padding: 1.05rem 1.35rem;
+    font-size: 18px;
+  }
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #E48A24;
+  box-shadow: 0 0 0 1px rgba(228, 138, 36, 0.2);
+}
+
+/* Form Textarea */
+.form-textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  color: #2A3A8C;
+  transition: all 0.2s ease;
+  resize: none;
+  min-height: 120px;
+}
+
+@media (max-width: 360px) {
+  .form-textarea {
+    padding: 0.65rem 0.85rem;
+    font-size: 13px;
+    min-height: 100px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .form-textarea {
+    padding: 0.9rem 1.15rem;
+    font-size: 16px;
+    min-height: 160px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .form-textarea {
+    padding: 1.05rem 1.35rem;
+    font-size: 18px;
+    min-height: 200px;
+  }
+}
+
+.form-textarea::placeholder {
+  color: rgba(42, 58, 140, 0.4);
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #E48A24;
+  box-shadow: 0 0 0 1px rgba(228, 138, 36, 0.2);
+}
+
+/* Form Error */
+.form-error {
+  font-size: 12px;
+  color: #E48A24;
+  margin-top: 0.5rem;
+}
+
+/* Form Success */
+.form-success {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #E48A24;
+  padding: 1rem;
+  background: rgba(228, 138, 36, 0.1);
+  border: 1px solid rgba(228, 138, 36, 0.2);
+}
+
+/* ============================================
+   BUTTONS COMPONENT
+   ============================================ */
+
+/* Base Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@media (min-width: 1920px) {
+  .btn {
+    padding: 1.05rem 2.1rem;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .btn {
+    padding: 1.25rem 2.5rem;
+    font-size: 15px;
+  }
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: #2A3A8C;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background: #E48A24;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #E48A24;
+  color: #2A3A8C;
+}
+
+.btn-secondary:hover {
+  border-color: #E48A24;
+  color: #E48A24;
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: #2A3A8C;
+}
+
+.btn-ghost:hover {
+  background: #E48A24;
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  border: 1px solid #2A3A8C;
+  color: #2A3A8C;
+}
+
+.btn-outline:hover {
+  border-color: #E48A24;
+  color: #E48A24;
+}
+
+.btn-outline-white {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.btn-outline-white:hover {
+  border-color: white;
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 10px;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 12px;
+}
+
+/* Icon Button */
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn-icon-sm {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+/* Button with Icon */
+.btn-icon-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon-only svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   MODAL COMPONENT
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #f1f3f5;
+  border: 1px solid #EEEEEE;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.open .modal {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #E48A24;
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: #2A3A8C;
+  margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+  font-size: 13px;
+  color: rgba(42, 58, 140, 0.7);
+}
+
+.modal-close {
+  padding: 0.25rem;
+  color: rgba(42, 58, 140, 0.7);
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #2A3A8C;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-top: 1px solid #E48A24;
+}
+
+/* ============================================
+   TOAST COMPONENT
+   ============================================ */
+
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #f1f3f5;
+  border: 1px solid #EEEEEE;
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+  animation: toastIn 0.3s ease forwards;
+}
+
+.toast.toast-out {
+  animation: toastOut 0.3s ease forwards;
+}
+
+.toast-success {
+  border-color: rgba(228, 138, 36, 0.3);
+}
+
+.toast-success .toast-icon {
+  color: #E48A24;
+}
+
+.toast-error {
+  border-color: rgba(228, 138, 36, 0.3);
+}
+
+.toast-error .toast-icon {
+  color: #E48A24;
+}
+
+.toast-message {
+  font-size: 14px;
+  color: #2A3A8C;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}

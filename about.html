@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Gobind Dance Center</title>
+  <meta name="description" content="Discover the journey of Gobind Rai - a master choreographer with over 30 years of experience in cinema and dance education.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="assets/icons/Febicone.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/loader.css">
+
+  <style>
+    /* ============================================================
+       ABOUT — ENHANCED & PROFESSIONAL
+       ============================================================ */
+    :root {
+      --brand-orange: #E48A24;
+      --brand-blue: #2A3A8C;
+      --brand-light: #f1f3f5;
+      --brand-dark: #1f2b5a;
+      --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-card: 0 4px 20px rgba(42, 58, 140, 0.06);
+      --shadow-hover: 0 20px 50px rgba(42, 58, 140, 0.12), 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ── Hero Banner with Parallax ── */
+    .about-hero {
+      position: relative;
+      height: 45vh;
+      min-height: 320px;
+      overflow: hidden;
+    }
+
+    .about-hero-bg {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    .about-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+    }
+
+    .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1));
+    }
+
+    .about-hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .about-hero-content {
+        padding: 3rem 2.5rem;
+      }
+    }
+
+    .about-hero-badge {
+      display: inline-block;
+      font-size: 15px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .about-hero-badge::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--brand-orange);
+      transform: translateY(-50%);
+      transition: width 0.5s ease;
+    }
+
+    .about-hero:hover .about-hero-badge::before {
+      width: 2rem;
+    }
+
+    .about-hero-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: #ffffff;
+    }
+
+    @media (min-width: 768px) {
+      .about-hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .about-hero-title {
+        font-size: 3rem;
+      }
+    }
+
+    .about-hero-title-accent {
+      font-style: normal;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ── Bio Section ── */
+    .about-bio {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .about-bio {
+        padding: 6rem 0;
+      }
+    }
+
+    .about-bio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      .about-bio-grid {
+        grid-template-columns: 1fr 380px;
+        gap: 6rem;
+      }
+    }
+
+    .about-bio-text p {
+      font-size: 17px;
+      line-height: 1.85;
+      color: rgba(42, 58, 140, 0.75);
+      margin-bottom: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .about-bio-text p {
+        font-size: 18px;
+      }
+    }
+
+    .about-bio-text strong {
+      color: var(--brand-blue);
+      font-weight: 600;
+    }
+
+    .about-bio-text em {
+      color: var(--brand-blue);
+      font-style: italic;
+    }
+
+    .about-bio-text .highlight-text {
+      color: var(--brand-orange);
+      font-weight: 500;
+    }
+
+    /* ── Metrics ── */
+    .about-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      border-top: 2px solid var(--brand-orange);
+      padding-top: 3rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 480px) {
+      .about-metrics {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .about-metric {
+      text-align: center;
+      padding: 1.75rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid #EEEEEE;
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── FIXED: Single orange colour on hover ── */
+    .about-metric::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--brand-orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .about-metric:hover::after {
+      transform: scaleX(1);
+    }
+
+    .about-metric:hover {
+      transform: translateY(-6px);
+      border-color: var(--brand-orange);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .about-metric-value {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--brand-blue);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .about-metric-value {
+        font-size: 2.5rem;
+      }
+    }
+
+    .about-metric-unit {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-metric-desc {
+      font-size: 13px;
+      color: rgba(42, 58, 140, 0.6);
+      line-height: 1.4;
+    }
+
+    /* ── Sidebar ── */
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      border: 1px solid #EEEEEE;
+    }
+
+    .about-portrait:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--brand-orange);
+    }
+
+    /* ── Timeline ── */
+    .about-timeline h3 {
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-timeline h3::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 40%;
+      height: 2px;
+      background: var(--brand-orange);
+      transition: width 0.5s ease;
+    }
+
+    .about-timeline:hover h3::after {
+      width: 100%;
+    }
+
+    .about-timeline-list {
+      display: flex;
+      flex-direction: column;
+      padding-left: 2rem;
+      border-left: 2px solid rgba(228, 138, 36, 0.2);
+    }
+
+    .about-timeline-item {
+      position: relative;
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(228, 138, 36, 0.08);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      border-radius: 4px;
+      padding-left: 1.25rem;
+      margin-left: 0.5rem;
+    }
+
+    .about-timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    /* ── ENHANCED: Bigger dot with glow ── */
+    .about-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 2px var(--brand-orange), var(--shadow-card);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .about-timeline-item:hover::before {
+      transform: translateY(-50%) scale(1.25);
+      box-shadow: 0 0 0 6px rgba(228, 138, 36, 0.2), 0 0 0 2px var(--brand-orange), var(--shadow-hover);
+      background: #ffffff;
+      border-color: var(--brand-orange);
+    }
+
+    .about-timeline-item:hover {
+      background: rgba(241, 243, 245, 0.3);
+      padding-left: 1.5rem;
+      border-radius: 6px;
+    }
+
+    /* ── ENHANCED: Larger timeline text ── */
+    .about-timeline-year {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--brand-orange);
+      display: inline-block;
+      min-width: 3.5rem;
+    }
+
+    .about-timeline-event {
+      font-size: 16px;
+      color: rgba(42, 58, 140, 0.75);
+      transition: color 0.3s ease;
+    }
+
+    .about-timeline-item:hover .about-timeline-event {
+      color: var(--brand-blue);
+    }
+
+    /* ── Philosophy Banner ── */
+    .about-philosophy {
+      background: rgba(241, 243, 245, 0.4);
+      border-top: 2px solid var(--brand-orange);
+      border-bottom: 2px solid var(--brand-orange);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .about-philosophy {
+        padding: 7rem 0;
+      }
+    }
+
+    .about-philosophy::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -30%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(228, 138, 36, 0.04), transparent 70%);
+      animation: pulseGlow 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .about-philosophy::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(circle at 70% 60%, rgba(42, 58, 140, 0.03), transparent 70%);
+      animation: pulseGlow 10s ease-in-out infinite alternate-reverse;
+      pointer-events: none;
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+      100% { transform: scale(1.15) translate(5%, 5%); opacity: 1; }
+    }
+
+    .about-philosophy-content {
+      max-width: 56rem;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-philosophy-quote {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      color: rgba(228, 138, 36, 0.15);
+      display: block;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    @media (min-width: 768px) {
+      .about-philosophy-quote {
+        font-size: 4.5rem;
+      }
+    }
+
+    .about-philosophy-text {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--brand-blue);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .about-philosophy-text {
+        font-size: 1.5rem;
+        line-height: 1.8;
+      }
+    }
+
+    .about-philosophy-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .about-philosophy-line {
+      width: 2.5rem;
+      height: 1px;
+      background: rgba(228, 138, 36, 0.3);
+      transition: width 0.5s ease;
+    }
+
+    .about-philosophy-content:hover .about-philosophy-line {
+      width: 4rem;
+    }
+
+    .about-philosophy-name {
+      font-size: 15px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: 500;
+    }
+
+    /* ── Responsive ── */
+    .pt-\[110px\] {
+      padding-top: 90px;
+    }
+
+    @media (max-width: 768px) {
+      .pt-\[110px\] {
+        padding-top: 80px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      .about-hero-title {
+        font-size: 1.7rem;
+      }
+      .about-bio-text p {
+        font-size: 16px;
+      }
+      .about-metric-value {
+        font-size: 1.8rem;
+      }
+      .about-timeline-item {
+        padding: 0.6rem 0 0.6rem 1rem;
+      }
+      .about-timeline-year {
+        font-size: 14px;
+        min-width: 3rem;
+      }
+      .about-timeline-event {
+        font-size: 14px;
+      }
+      .about-timeline-item::before {
+        width: 12px;
+        height: 12px;
+        left: -1.8rem;
+      }
+      .about-philosophy-text {
+        font-size: 1.1rem;
+      }
+      .about-timeline-list {
+        padding-left: 1.5rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .about-timeline-year {
+        font-size: 13px;
+        min-width: 2.5rem;
+      }
+      .about-timeline-event {
+        font-size: 13px;
+      }
+      .about-timeline-item::before {
+        width: 10px;
+        height: 10px;
+        left: -1.5rem;
+      }
+    }
+
+    /* ── Scroll Animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.94);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .stagger-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Grain Overlay ── */
+    .grain-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* ── Performance ── */
+    .about-hero-bg {
+      will-change: transform;
+    }
+
+    .about-metric {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+  </style>
+</head>
+<body class="grain-overlay">
+  <div id="navbar-container"></div>
+
+  <main class="pt-[110px]">
+    <!-- Hero Banner with Parallax -->
+    <section class="about-hero">
+      <div class="about-hero-bg" id="parallax-bg">
+        <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/570529521_25188997747400209_2149442616556549722_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1152&ctp=s2048x1152&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ir7QeqaozvUQ7kNvwFkHkub&_nc_oc=AdpyHUKQNdcoHEdQUMMP-b95uiD9ptY90xAd0fLmYzVwcDB1iOvxmiSyvefRLOJZzxvGEhLPWrKTJkLzIJsJw7Q0&_nc_zt=23&_nc_ht=scontent.fktm3-1.fna&_nc_gid=ilclPgzy0ORz3WS_WBvN4A&_nc_ss=7b2a8&oh=00_Af8Nt-YA72SYZuZipk0F514YbIQffH_hY8RsO2SPgP6AWA&oe=6A369BAA" alt="Dance performance" loading="lazy">
+      </div>
+      <div class="about-hero-overlay"></div>
+      <div class="about-hero-content">
+        <span class="about-hero-badge reveal">Historical Record</span>
+        <h1 class="about-hero-title reveal">
+          A Life Choreographed<br>
+          <span class="about-hero-title-accent">in Devotion & Discipline.</span>
+        </h1>
+      </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="about-bio">
+      <div class="container">
+        <div class="about-bio-grid">
+          <div class="about-bio-text reveal-left">
+            <p>
+              Born on <strong>September 14, 1971</strong>, in Dharan, Sunsari, Nepal — Gobind Rai has spent over three decades sculpting movement into meaning. Today he commands cultural classes out of the <strong>Gobind Dance Center</strong> at <span class="highlight-text">40-08 76th St, Elmhurst, New York City, USA</span>.
+            </p>
+            <p>
+              His cinematic direction footprint culminated in the award-winning Nepalese feature film <em>"NAAGBELI"</em> (2013), a landmark achievement in national cinema.
+            </p>
+            <p>
+              In 1997, he founded <strong>'The Angel Kalakendra'</strong> in Kathmandu — an institution he directed through 2005, directly training and launching superstar screen icons <span style="color: var(--brand-blue); font-weight: 500;">Rekha Thapa, Richa Ghimere, Arunima Lamsal</span>, and <span style="color: var(--brand-blue); font-weight: 500;">Nisha Adhikari</span>.
+            </p>
+            <p>
+              Master choreographer behind legendary cinematic box office hits: <em>Gurkha Paltan, Naina Resham, Mission Paisa</em>, and <em>Sayad</em>.
+            </p>
+            <p>
+              Honored as <strong>"Best Dance Director of the Year"</strong> at the NEFTA National KTV Film Awards (2007) and Filmy Khabar CG Digital Awards (2008).
+            </p>
+
+            <!-- Metrics / Counters -->
+            <div class="about-metrics">
+              <div class="about-metric stagger-item">
+                <p class="about-metric-value"><span class="count-up" data-target="30" data-suffix="+">0</span></p>
+                <p class="about-metric-unit">Years</p>
+                <p class="about-metric-desc">Cinema & Studio Mastery</p>
+              </div>
+              <div class="about-metric stagger-item" style="transition-delay: 0.08s;">
+                <p class="about-metric-value"><span class="count-up" data-target="15" data-suffix="+">0</span></p>
+                <p class="about-metric-unit">Stars</p>
+                <p class="about-metric-desc">Trained & Screen Launched</p>
+              </div>
+              <div class="about-metric stagger-item" style="transition-delay: 0.16s;">
+                <p class="about-metric-value"><span class="count-up" data-target="2" data-suffix="">0</span></p>
+                <p class="about-metric-unit">National</p>
+                <p class="about-metric-desc">Directorial Choreography Awards</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portrait + Timeline -->
+          <div class="about-sidebar">
+            <div class="reveal-scale">
+              <img src="\assets\gobind1.jpg" alt="Gobind Rai portrait" class="about-portrait" loading="lazy">
+            </div>
+
+            <div class="reveal-scale" style="transition-delay: 0.15s;">
+              <div class="about-timeline">
+                <h3>Timeline</h3>
+                <div class="about-timeline-list">
+                  <div class="about-timeline-item stagger-item">
+                    <span class="about-timeline-year">1971</span>
+                    <span class="about-timeline-event">Born in Dharan, Sunsari, Nepal</span>
+                  </div>
+                  <div class="about-timeline-item stagger-item" style="transition-delay: 0.06s;">
+                    <span class="about-timeline-year">1997</span>
+                    <span class="about-timeline-event">Founded 'The Angel Kalakendra' in Kathmandu</span>
+                  </div>
+                  <div class="about-timeline-item stagger-item" style="transition-delay: 0.12s;">
+                    <span class="about-timeline-year">2002</span>
+                    <span class="about-timeline-event">NTV's Aagan — Talent Judge & Choreographer</span>
+                  </div>
+                  <div class="about-timeline-item stagger-item" style="transition-delay: 0.18s;">
+                    <span class="about-timeline-year">2007</span>
+                    <span class="about-timeline-event">NEFTA Best Dance Director Award</span>
+                  </div>
+                  <div class="about-timeline-item stagger-item" style="transition-delay: 0.24s;">
+                    <span class="about-timeline-year">2008</span>
+                    <span class="about-timeline-event">Filmy Khabar CG Digital Award</span>
+                  </div>
+                  <div class="about-timeline-item stagger-item" style="transition-delay: 0.3s;">
+                    <span class="about-timeline-year">2013</span>
+                    <span class="about-timeline-event">Directed award-winning film NAAGBELI</span>
+                  </div>
+                  <div class="about-timeline-item stagger-item" style="transition-delay: 0.36s;">
+                    <span class="about-timeline-year">2013</span>
+                    <span class="about-timeline-event">Head Expert Panelist — Fanta Miss Nepal</span>
+                  </div>
+                  <div class="about-timeline-item stagger-item" style="transition-delay: 0.42s;">
+                    <span class="about-timeline-year">Now</span>
+                    <span class="about-timeline-event">Gobind Dance Center, Elmhurst, NYC</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy Banner -->
+    <section class="about-philosophy">
+      <div class="about-philosophy-content reveal">
+        <span class="about-philosophy-quote">&ldquo;</span>
+        <p class="about-philosophy-text">
+          Dance is not just movement — it is the memory of a culture expressed through the body. When you dance with intention, you carry your ancestors forward.
+        </p>
+        <div class="about-philosophy-author">
+          <span class="about-philosophy-line"></span>
+          <span class="about-philosophy-name">Gobind Rai</span>
+          <span class="about-philosophy-line"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <!-- ── JavaScript for enhanced interactions ── -->
+  <script>
+    // ── Counter Animation ──
+    function initCounters() {
+      const counters = document.querySelectorAll('.count-up');
+      if (!counters.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-target'));
+            const suffix = el.getAttribute('data-suffix') || '';
+            let current = 0;
+            const duration = 1500;
+            const stepTime = 30;
+            const steps = duration / stepTime;
+            const increment = Math.ceil(target / steps);
+
+            el.textContent = '0';
+
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                el.textContent = target + suffix;
+                clearInterval(timer);
+              } else {
+                el.textContent = current + suffix;
+              }
+            }, stepTime);
+
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      counters.forEach(c => observer.observe(c));
+    }
+
+    // ── Parallax Hero ──
+    function initParallax() {
+      const parallax = document.getElementById('parallax-bg');
+      if (!parallax) return;
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        // Only apply if the hero is still in view
+        const hero = parallax.closest('.about-hero');
+        if (hero) {
+          const rect = hero.getBoundingClientRect();
+          // If the hero is above the viewport, stop parallax to avoid weird jumps
+          if (rect.bottom < 0) return;
+          const speed = 0.12;
+          parallax.style.transform = `translateY(${scrollY * speed}px)`;
+        }
+      }, { passive: true });
+    }
+
+    // ── Scroll Reveal Observer ──
+    function initScrollReveal() {
+      const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale, .stagger-item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add visible class with a small delay for stagger effect
+            const delay = entry.target.style.transitionDelay || '0s';
+            const delayMs = parseFloat(delay) * 1000 || 0;
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, delayMs);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -20px 0px'
+      });
+
+      elements.forEach(el => observer.observe(el));
+    }
+
+    // ── Init Everything ──
+    document.addEventListener('DOMContentLoaded', function() {
+      initScrollReveal();
+      initCounters();
+      initParallax();
+
+      // Also observe dynamically added stagger items
+      const staggerObserver = new MutationObserver(() => {
+        document.querySelectorAll('.stagger-item:not(.observed)').forEach(el => {
+          el.classList.add('observed');
+          // Re-run observer for newly added items if needed
+        });
+      });
+    });
+
+    // Re-run on load to catch any late-rendered elements
+    window.addEventListener('load', function() {
+      document.querySelectorAll('.stagger-item').forEach(el => {
+        // Ensure they are observed if not already visible
+      });
+    });
+  </script>
+
+  <!-- ── External Scripts ── -->
+  <script src="js/emailjs-config.js"></script>
+  <script src="js/utilities.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/footer.js"></script>
+  <script src="js/components/scroll.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/loader.js"></script>
+</body>
+</html>

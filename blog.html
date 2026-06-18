@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Gobind Dance Center</title>
+  <meta name="description" content="Essays and reflections on dance, culture, and the art of teaching - from the studio floor.">
+
+  <link rel="icon" type="image/png" href="assets/icons/Febicone.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/loader.css">
+
+  <style>
+    /* ===== BLOG PAGE — ENHANCED & PROFESSIONAL ===== */
+    :root {
+      --brand-orange: #E48A24;
+      --brand-blue: #2A3A8C;
+      --brand-light: #f1f3f5;
+      --brand-dark: #1f2b5a;
+      --transition-smooth: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-card: 0 2px 12px rgba(42, 58, 140, 0.04);
+      --shadow-hover: 0 16px 48px rgba(42, 58, 140, 0.08), 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    /* ── Page Header ── */
+    .blog-header {
+      padding: 2rem 0 2rem;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .blog-header {
+        padding: 5rem 0 2.5rem;
+      }
+    }
+
+    .blog-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand-orange), transparent);
+      border-radius: 2px;
+    }
+
+    .blog-badge {
+      display: inline-block;
+      font-size: 15px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .blog-badge::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 1.2rem;
+      height: 2px;
+      background: var(--brand-orange);
+      transform: translateY(-50%);
+      transition: width 0.5s ease;
+    }
+
+    .blog-header:hover .blog-badge::before {
+      width: 1.8rem;
+    }
+
+    .blog-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--brand-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .blog-header h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .blog-header h1 {
+        font-size: 3.2rem;
+      }
+    }
+
+    .blog-header p {
+      font-size: 16px;
+      color: rgba(42, 58, 140, 0.65);
+      max-width: 30rem;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      .blog-header p {
+        font-size: 17px;
+      }
+    }
+
+    /* ── Featured Article ── */
+    .blog-featured {
+      margin: 3rem 0 4rem;
+    }
+
+    .blog-featured-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      border: 1px solid #EEEEEE;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      cursor: pointer;
+      transition: all var(--transition-smooth);
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .blog-featured-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--brand-orange), var(--brand-blue));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+
+    .blog-featured-card:hover::before {
+      opacity: 1;
+    }
+
+    @media (min-width: 640px) {
+      .blog-featured-card {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .blog-featured-card:hover {
+      border-color: var(--brand-orange);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    .blog-featured-image {
+      overflow: hidden;
+      position: relative;
+      background: var(--brand-light);
+    }
+
+    .blog-featured-image::after {
+      content: 'Featured';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--brand-orange);
+      color: #fff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+    }
+
+    .blog-featured-card:hover .blog-featured-image::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .blog-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    @media (min-width: 640px) {
+      .blog-featured-image img {
+        aspect-ratio: auto;
+        min-height: 320px;
+      }
+    }
+
+    .blog-featured-card:hover .blog-featured-image img {
+      transform: scale(1.05);
+    }
+
+    .blog-featured-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #ffffff;
+    }
+
+    @media (min-width: 640px) {
+      .blog-featured-content {
+        padding: 2.5rem;
+      }
+    }
+
+    .blog-featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .blog-category {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: rgba(228, 138, 36, 0.08);
+      color: var(--brand-orange);
+      padding: 0.3rem 0.8rem;
+      font-weight: 600;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .blog-featured-card:hover .blog-category {
+      background: var(--brand-orange);
+      color: #fff;
+      border-color: var(--brand-orange);
+      transform: scale(1.02);
+    }
+
+    .blog-read-time {
+      font-size: 13px;
+      color: rgba(42, 58, 140, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .blog-read-time svg {
+      stroke: var(--brand-orange);
+    }
+
+    .blog-featured-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--brand-blue);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+      transition: color 0.3s ease;
+    }
+
+    .blog-featured-card:hover .blog-featured-title {
+      color: var(--brand-orange);
+    }
+
+    @media (min-width: 640px) {
+      .blog-featured-title {
+        font-size: 1.6rem;
+      }
+    }
+
+    .blog-featured-excerpt {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(42, 58, 140, 0.7);
+      margin-bottom: 1.25rem;
+    }
+
+    .blog-featured-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+      width: fit-content;
+    }
+
+    .blog-featured-link:hover {
+      border-bottom-color: var(--brand-orange);
+      gap: 0.8rem;
+    }
+
+    .blog-featured-link a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .blog-featured-link svg {
+      transition: transform 0.3s ease;
+    }
+
+    .blog-featured-link:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ── Featured Expanded ── */
+    .blog-featured-expanded {
+      border: 1px solid #EEEEEE;
+      border-top: none;
+      padding: 0 2.5rem 2rem;
+      background: #fafafa;
+      display: none;
+      border-radius: 0 0 12px 12px;
+      margin-top: -1px;
+    }
+
+    .blog-featured-expanded.open {
+      display: block;
+      animation: fadeSlideDown 0.4s ease forwards;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .blog-featured-expanded p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: rgba(42, 58, 140, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    .blog-featured-expanded p:last-child {
+      margin-bottom: 0;
+    }
+
+    .blog-collapse-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      margin-top: 0.75rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem 0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .blog-collapse-btn:hover {
+      gap: 0.7rem;
+      border-bottom-color: var(--brand-orange);
+    }
+
+    .blog-collapse-btn svg {
+      transition: transform 0.3s ease;
+    }
+
+    .blog-collapse-btn:hover svg {
+      transform: rotate(180deg);
+    }
+
+    /* ── Article List ── */
+    .blog-list {
+      border-top: 2px solid var(--brand-orange);
+      padding-top: 0.5rem;
+    }
+
+    .blog-article {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(228, 138, 36, 0.15);
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin: 0 -1rem;
+    }
+
+    .blog-article:first-child {
+      padding-top: 2rem;
+    }
+
+    .blog-article:last-child {
+      border-bottom: none;
+    }
+
+    .blog-article:hover {
+      background: rgba(241, 243, 245, 0.3);
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .blog-article-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .blog-article-grid {
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+    }
+
+    .blog-article-image {
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background: var(--brand-light);
+    }
+
+    @media (min-width: 640px) {
+      .blog-article-image {
+        width: 200px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .blog-article-image {
+        width: 220px;
+      }
+    }
+
+    .blog-article-image img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+      display: block;
+    }
+
+    .blog-article:hover .blog-article-image img {
+      transform: scale(1.06);
+    }
+
+    .blog-article-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(42, 58, 140, 0.02), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .blog-article:hover .blog-article-image::after {
+      opacity: 1;
+    }
+
+    .blog-article-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .blog-article-date {
+      font-size: 12px;
+      color: rgba(42, 58, 140, 0.6);
+      font-weight: 400;
+    }
+
+    .blog-article-separator {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      opacity: 0.6;
+    }
+
+    .blog-article-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--brand-blue);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+      transition: color 0.3s ease;
+    }
+
+    .blog-article:hover .blog-article-title {
+      color: var(--brand-orange);
+    }
+
+    @media (min-width: 768px) {
+      .blog-article-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    .blog-article-excerpt {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(42, 58, 140, 0.7);
+      margin-bottom: 0.75rem;
+      flex: 1;
+    }
+
+    /* ── Read More Button ── */
+    .blog-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      width: fit-content;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+    }
+
+    .blog-read-more a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .blog-read-more:hover {
+      color: var(--brand-orange);
+      border-bottom-color: var(--brand-orange);
+      gap: 0.8rem;
+    }
+
+    .blog-read-more svg {
+      transition: transform 0.35s ease;
+    }
+
+    .blog-read-more:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ── Article Expanded ── */
+    .blog-article-expanded {
+      display: none;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(228, 138, 36, 0.1);
+      margin-top: 0.75rem;
+    }
+
+    .blog-article-expanded.open {
+      display: block;
+      animation: fadeSlideDown 0.35s ease forwards;
+    }
+
+    .blog-article-expanded p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(42, 58, 140, 0.7);
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-article-expanded p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Responsive ── */
+    .pt-\[110px\] {
+      padding-top: 110px;
+    }
+
+    @media (max-width: 768px) {
+      .pt-\[110px\] {
+        padding-top: 80px;
+      }
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* grain overlay - lightweight */
+    .grain-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* ── Article list item hover indicator ── */
+    .blog-article {
+      position: relative;
+    }
+
+    .blog-article::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--brand-orange);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .blog-article:hover::before {
+      transform: scaleY(1);
+    }
+
+    /* ── Mobile refinements ── */
+    @media (max-width: 480px) {
+      .blog-featured-content {
+        padding: 1.25rem;
+      }
+      .blog-featured-title {
+        font-size: 1.1rem;
+      }
+      .blog-featured-excerpt {
+        font-size: 14px;
+      }
+      .blog-featured-expanded {
+        padding: 0 1.25rem 1.25rem;
+      }
+      .blog-article {
+        padding: 1.25rem 0.5rem;
+        margin: 0 -0.5rem;
+      }
+      .blog-article:hover {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+      .blog-article-title {
+        font-size: 1.05rem;
+      }
+      .blog-article-excerpt {
+        font-size: 13.5px;
+      }
+      .blog-header h1 {
+        font-size: 1.8rem;
+      }
+      .blog-header p {
+        font-size: 15px;
+      }
+      .blog-category {
+        font-size: 10px;
+        padding: 0.2rem 0.6rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .blog-featured-card {
+        border-radius: 8px;
+      }
+      .blog-featured-content {
+        padding: 1rem;
+      }
+      .blog-article {
+        padding: 1rem 0.25rem;
+        margin: 0 -0.25rem;
+      }
+      .blog-article-image {
+        width: 100%;
+      }
+      .blog-article-grid {
+        gap: 0.75rem;
+      }
+    }
+
+    /* ── Scroll-triggered animation delays ── */
+    .reveal:nth-child(2) { transition-delay: 0.05s; }
+    .reveal:nth-child(3) { transition-delay: 0.1s; }
+
+    /* ── Performance optimisations ── */
+    .blog-featured-card,
+    .blog-article,
+    .blog-read-more,
+    .blog-collapse-btn {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .blog-featured-image img,
+    .blog-article-image img {
+      will-change: transform;
+    }
+  </style>
+</head>
+<body class="grain-overlay">
+  <div id="navbar-container"></div>
+
+  <main class="pt-[110px]">
+    <div class="container">
+      <header class="blog-header">
+        <span class="blog-badge reveal">Editorial</span>
+        <h1 class="reveal">Essays & Reflections</h1>
+        <p class="reveal">
+          Thoughts on dance, culture, and the art of teaching — from the studio floor.
+        </p>
+      </header>
+
+      <!-- Featured Article -->
+      <div class="blog-featured">
+        <div class="blog-featured-card reveal" onclick="toggleFeaturedArticle()">
+          <div class="blog-featured-image">
+            <img src="https://images.fillout.com/516753/edsgnzyv6t/generated-images/5Dx4Yt3riFahGVa4C5vFM4/img_MMHg3GZqo-DKHIzb.jpg" alt="The Preservation of Nepalese Folk Rhythms" loading="lazy">
+          </div>
+          <div class="blog-featured-content">
+            <div class="blog-featured-meta">
+              <span class="blog-category">Culture</span>
+              <span class="blog-read-time">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                3 min read
+              </span>
+            </div>
+            <h2 class="blog-featured-title">The Preservation of Nepalese Folk Rhythms in Global Metropolises</h2>
+            <p class="blog-featured-excerpt">As diaspora communities grow across Western cities, the ancient folk rhythms of Nepal face both unprecedented opportunity and quiet erosion.</p>
+            <span class="blog-featured-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <a href="blog1.html">Read Article</a>
+            </span>
+          </div>
+        </div>
+
+        <div class="blog-featured-expanded" id="featured-expanded">
+          <p>The story of Nepalese folk dance in New York is, at its core, a story about memory. Every dhamaka beat that resonates through a Queens studio carries the dust of Terai fields, the mountain air of Dharan, and the festival energy of Indra Jatra.</p>
+          <p>For over three decades, Gobind Rai has been a custodian of these rhythms — not in a museum, but in a living classroom. His students range from Nepali-American children who have never visited their parents' homeland to professional dancers seeking to expand their physical vocabulary.</p>
+          <p>The challenge is authenticity without rigidity. Folk dance was never static; it evolved with communities, seasons, and celebrations. Teaching it in Elmhurst means honoring its roots while acknowledging that the soil has changed. The feet are the same. The floor is different.</p>
+          <p>What matters is the intention — the rasa — behind every movement. That, Rai insists, is universal.</p>
+          <button class="blog-collapse-btn" onclick="toggleFeaturedArticle(); event.stopPropagation();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6"/>
+            </svg>
+            Collapse
+          </button>
+        </div>
+      </div>
+
+      <!-- Article List -->
+      <div class="blog-list">
+        <!-- Article 2 -->
+        <article class="blog-article reveal">
+          <div class="blog-article-grid">
+            <div class="blog-article-image">
+              <img src="https://images.fillout.com/516753/edsgnzyv6t/generated-images/uyHMXkdA2aBCSnZ5Skg5hX/img_To6l1TyDtDZOZLk2.jpg" alt="The Choreographic Eye" loading="lazy">
+            </div>
+            <div class="blog-article-content">
+              <div class="blog-article-meta">
+                <span class="blog-category">Technique</span>
+                <span class="blog-article-date">April 2026</span>
+                <span class="blog-article-separator"></span>
+                <span class="blog-read-time">5 min read</span>
+              </div>
+              <h2 class="blog-article-title">The Choreographic Eye: Camera Directing Tips for Modern Dancers</h2>
+              <p class="blog-article-excerpt">The stage and the screen demand fundamentally different physical vocabularies. A masterclass in understanding the invisible rectangle.</p>
+
+              <div class="blog-article-expanded" id="article-2-expanded">
+                <p>On stage, a dancer performs for the last row. On camera, they perform for a lens six feet away. This distinction — seemingly simple — transforms everything: the scale of gestures, the architecture of formations, the timing of transitions.</p>
+                <p>Gobind Rai learned this through decades of navigating Kollywood film sets, where a single take might cost more than a week of stage rehearsal. The camera doesn't forgive imprecision the way a live audience does. It amplifies everything.</p>
+              </div>
+
+              <button class="blog-read-more" onclick="toggleArticle(2)">
+                <a href="blog2.html">Read Article</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-article reveal" style="transition-delay: 0.05s;">
+          <div class="blog-article-grid">
+            <div class="blog-article-image">
+              <img src="https://images.fillout.com/516753/edsgnzyv6t/generated-images/dKfQbjrUXaS6sSesLosJTX/img_D4bfe3autX9QYFC8.jpg" alt="From Dharan Roots" loading="lazy">
+            </div>
+            <div class="blog-article-content">
+              <div class="blog-article-meta">
+                <span class="blog-category">Story</span>
+                <span class="blog-article-date">March 2026</span>
+                <span class="blog-article-separator"></span>
+                <span class="blog-read-time">6 min read</span>
+              </div>
+              <h2 class="blog-article-title">From Dharan Roots to Elmhurst Avenues: A 30-Year Cross-Continental Journey</h2>
+              <p class="blog-article-excerpt">Tracing the arc of a life lived between two worlds — from the foothill stages of eastern Nepal to the corridors of Elmhurst, Queens.</p>
+
+              <div class="blog-article-expanded" id="article-3-expanded">
+                <p>Dharan in the early 1970s was a garrison town in transition. British Gurkha recruitment was winding down, and the city was finding a new identity. Into this shifting landscape, Gobind Rai was born — not to a family of performers, but to one that understood discipline.</p>
+                <p>The dance came later, almost by accident. A school cultural program. A teacher who noticed something in the way the boy moved. A local festival that needed young performers. These small moments accumulated into a calling.</p>
+                <p>By the mid-1990s, Rai was in Kathmandu, founding The Angel Kalakendra and reshaping what dance training looked like in Nepal. His students didn't just learn steps — they learned presence, camera awareness, and the business of performance.</p>
+              </div>
+
+              <button class="blog-read-more" onclick="toggleArticle(3)">
+                <a href="blog3.html">Read Article</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="blog-article reveal" style="transition-delay: 0.1s;">
+          <div class="blog-article-grid">
+            <div class="blog-article-image">
+              <img src="https://images.fillout.com/516753/edsgnzyv6t/generated-images/tfMDgNmW1GmP4d8ycQ553f/img_S7PuxulnhY8LAH2n.jpg" alt="Why Every Dancer Should Study Classical Foundations" loading="lazy">
+            </div>
+            <div class="blog-article-content">
+              <div class="blog-article-meta">
+                <span class="blog-category">Education</span>
+                <span class="blog-article-date">February 2026</span>
+                <span class="blog-article-separator"></span>
+                <span class="blog-read-time">4 min read</span>
+              </div>
+              <h2 class="blog-article-title">Why Every Dancer Should Study Classical Foundations</h2>
+              <p class="blog-article-excerpt">Before innovation comes understanding. The argument for building your movement vocabulary from the ground up.</p>
+
+              <div class="blog-article-expanded" id="article-4-expanded">
+                <p>In an era where viral choreography can be learned in an afternoon, the case for spending months — even years — on classical foundations may seem counterintuitive. But ask any choreographer who has worked across genres, and they will tell you the same thing: classical training is not a style. It is a language.</p>
+                <p>The mudras of Bharatanatyam, the footwork patterns of Kathak, the postural discipline of Nepali folk — these are not relics of a past era. They are technologies of the body, refined over centuries, that give dancers access to a range of expression that contemporary training alone cannot provide.</p>
+              </div>
+
+              <button class="blog-read-more" onclick="toggleArticle(4)">
+                <a href="blog4.html">Read Article</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script>
+    // ── Toggle Featured Article ──
+    function toggleFeaturedArticle() {
+      const expanded = document.getElementById('featured-expanded');
+      if (expanded) {
+        expanded.classList.toggle('open');
+        // scroll into view if opening
+        if (expanded.classList.contains('open')) {
+          setTimeout(() => {
+            expanded.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      }
+    }
+
+    // ── Toggle Regular Article ──
+    function toggleArticle(num) {
+      const expanded = document.getElementById('article-' + num + '-expanded');
+      if (expanded) {
+        expanded.classList.toggle('open');
+        // scroll into view if opening
+        if (expanded.classList.contains('open')) {
+          setTimeout(() => {
+            expanded.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      }
+    }
+
+    // ── Reveal on scroll ──
+    document.addEventListener('DOMContentLoaded', function() {
+      const reveals = document.querySelectorAll('.reveal');
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -20px 0px'
+      });
+
+      reveals.forEach(el => revealObserver.observe(el));
+
+      // Also observe article items
+      const articles = document.querySelectorAll('.blog-article');
+      articles.forEach((article, index) => {
+        // If they have reveal class, they're already observed
+        if (!article.classList.contains('reveal')) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+              }
+            });
+          }, { threshold: 0.1 });
+          observer.observe(article);
+        }
+      });
+
+      // Fix for reveal with animation-delay
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.style.animationDelay === '') {
+          // preserve inline styles
+        }
+      });
+    });
+  </script>
+
+  <script src="js/emailjs-config.js"></script>
+  <script src="js/utilities.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/components/footer.js"></script>
+  <script src="js/components/scroll.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/loader.js"></script>
+</body>
+</html>

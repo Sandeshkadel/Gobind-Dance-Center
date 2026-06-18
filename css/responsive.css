@@ -1,0 +1,114 @@
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Additional responsive utilities - most responsive styles are in global.css */
+
+/* Extra small devices — very small phones (≤360px) */
+@media (max-width: 360px) {
+  html {
+    font-size: 13px;
+  }
+
+  .container {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.1rem;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* Small devices */
+@media (min-width: 375px) and (max-width: 639px) {
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Large screens (1280px+) — bump container width */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+/* Extra-large screens (1440px+) — wider container */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* 2K screens (1920px+) — even wider, more breathing room */
+@media (min-width: 1920px) {
+  :root {
+    --container-max: 1600px;
+  }
+
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* 4K / 75" TV-class screens (2560px+) */
+@media (min-width: 2560px) {
+  :root {
+    --container-max: 1800px;
+  }
+
+  .container {
+    max-width: 1800px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .btn,
+  .toast-container {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .btn,
+  .card,
+  .form-input {
+    border-width: 2px;
+  }
+}
