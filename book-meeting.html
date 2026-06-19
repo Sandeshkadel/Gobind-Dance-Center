@@ -1,1028 +1,1217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Meeting - Gobind Dance Center</title>
-  <meta name="description" content="Schedule a session with Gobind Rai - free trial class, enrollment assessment, or 1-on-1 performance consultation.">
-
-  <link rel="icon" type="image/png" href="assets/icons/Febicone.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Calendly: warm the connection before the user reaches the widget -->
-  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
-  <link rel="dns-prefetch" href="https://calendly.com">
-
-  <!-- Calendly widget loader (async, in head so it starts downloading
-       immediately and is ready by the time the user reaches the form). -->
-  <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script">
-
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/components/footer.css">
-  <link rel="stylesheet" href="css/components/forms.css">
-  <link rel="stylesheet" href="css/components/cards.css">
-  <link rel="stylesheet" href="css/components/navbar.css">
-  <link rel="stylesheet" href="js/components/navbar.js">
-  <link rel="stylesheet" href="css/loader.css">
-
-  <style>
-    /* ============================================================
-       BOOKING PAGE — ULTRA SMOOTH & ATTRACTIVE
-       ============================================================ */
-    :root {
-      --brand-orange: #E48A24;
-      --brand-blue: #2A3A8C;
-      --brand-light: #f1f3f5;
-      --brand-dark: #1f2b5a;
-      --transition-fast: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-      --transition-smooth: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-      --shadow-card: 0 4px 24px rgba(42, 58, 140, 0.06);
-      --shadow-hover: 0 16px 48px rgba(42, 58, 140, 0.10), 0 8px 20px rgba(0,0,0,0.04);
-    }
-
-    /* ── Header ── */
-    .booking-header {
-      padding: 4rem 0 2.5rem;
-      position: relative;
-    }
-
-    @media (min-width: 768px) {
-      .booking-header {
-        padding: 6rem 0 3rem;
-      }
-    }
-
-    .booking-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--brand-orange), transparent);
-      border-radius: 2px;
-      transition: width 0.5s ease;
-    }
-
-    .booking-header:hover::after {
-      width: 120px;
-    }
-
-    .booking-badge {
-      display: inline-block;
-      font-size: 14px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--brand-orange);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      position: relative;
-      padding-left: 2.5rem;
-    }
-    .booking-badge::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 1.5rem;
-      height: 2px;
-      background: var(--brand-orange);
-      transform: translateY(-50%);
-      transition: width 0.5s ease;
-    }
-    .booking-header:hover .booking-badge::before {
-      width: 2.2rem;
-    }
-
-    .booking-header h1 {
-      font-family: var(--font-serif);
-      font-size: 2.6rem;
-      font-weight: 500;
-      line-height: 1.15;
-      color: var(--brand-blue);
-      margin-bottom: 0.75rem;
-    }
-
-    @media (min-width: 768px) {
-      .booking-header h1 {
-        font-size: 3.6rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .booking-header h1 {
-        font-size: 4.2rem;
-      }
-    }
-
-    .booking-header p {
-      font-size: 18px;
-      color: rgba(42, 58, 140, 0.7);
-      max-width: 32rem;
-      line-height: 1.7;
-    }
-
-    @media (min-width: 768px) {
-      .booking-header p {
-        font-size: 20px;
-      }
-    }
-
-    /* ── Booking Grid (single column now — Confirm panel removed) ── */
-    .booking-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin: 2.5rem auto 4rem;
-      max-width: 980px;
-    }
-
-    @media (min-width: 1024px) {
-      .booking-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
-    /* 8K / 75" 8K TV — let the booking grid breathe. */
-    @media (min-width: 2560px) {
-      .booking-grid {
-        max-width: 1800px;
-        margin: 3.5rem auto 6rem;
-      }
-    }
-
-    @media (min-width: 3840px) {
-      .booking-grid {
-        max-width: 2200px;
-        margin: 4.5rem auto 8rem;
-      }
-    }
-
-    /* ── Calendly ── */
-    .booking-calendly h3 {
-      font-size: 14px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--brand-blue);
-      font-weight: 500;
-      margin-bottom: 1rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .booking-calendly h3::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background: var(--brand-orange);
-    }
-
-    .booking-calendly-frame {
-      width: 100%;
-      min-height: 720px;
-      height: clamp(720px, 110vh, 1200px);
-      border: 1px solid #EEEEEE;
-      border-radius: 12px;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, #f8f9fb 0%, #eef1f6 100%);
-      position: relative;
-      box-shadow: var(--shadow-card);
-    }
-
-    /* Calendly's inline widget renders its own week/month grid inside the
-       iframe. 700px (the previous default) was just barely tall enough
-       and got cropped on most laptops. Use viewport-relative heights so
-       the calendar ALWAYS has enough room regardless of screen size. */
-    @media (min-width: 768px) {
-      .booking-calendly-frame {
-        height: clamp(820px, 115vh, 1200px);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .booking-calendly-frame {
-        height: clamp(900px, 118vh, 1300px);
-      }
-    }
-
-    @media (min-width: 1440px) {
-      .booking-calendly-frame {
-        height: clamp(960px, 120vh, 1400px);
-      }
-    }
-
-    @media (min-width: 1920px) {
-      .booking-calendly-frame {
-        height: 1100px;
-        border-radius: 16px;
-      }
-    }
-
-    @media (min-width: 2560px) {
-      .booking-calendly-frame { height: 1250px; border-radius: 18px; }
-    }
-    @media (min-width: 3840px) {
-      .booking-calendly-frame { height: 1500px; border-radius: 24px; }
-    }
-
-    .booking-calendly-frame iframe {
-      width: 100% !important;
-      height: 100% !important;
-      min-width: 100% !important;
-      min-height: 100% !important;
-      border: 0;
-      position: relative;
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-      display: block;
-    }
-
-    /* Calendly's script replaces `.calendly-inline-widget` with an iframe
-       that it sizes based on the parent. Give the host div the full
-       height so the iframe gets enough vertical space. */
-    .booking-calendly-frame .calendly-inline-widget {
-      width: 100% !important;
-      height: 100% !important;
-      min-width: 100% !important;
-      min-height: 100% !important;
-      display: block;
-    }
-
-    .booking-calendly-frame.is-ready iframe {
-      opacity: 1;
-    }
-
-    /* ── Skeleton loader — visible until the Calendly iframe fires `load` ── */
-    .calendly-skeleton {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.25rem;
-      background:
-        linear-gradient(135deg, #f8f9fb 0%, #eef1f6 100%);
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-
-    .booking-calendly-frame.is-ready .calendly-skeleton {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .calendly-skeleton-mark {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background:
-        conic-gradient(from 0deg, #E48A24 0%, #F4A93B 25%, #2A3A8C 60%, #E48A24 100%);
-      -webkit-mask: radial-gradient(circle, transparent 56%, #000 58%);
-              mask: radial-gradient(circle, transparent 56%, #000 58%);
-      animation: calendly-spin 1.4s linear infinite;
-    }
-
-    @keyframes calendly-spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .calendly-skeleton-label {
-      font-size: 11px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: rgba(42, 58, 140, 0.55);
-      font-weight: 500;
-    }
-
-    .calendly-skeleton-bar {
-      width: 60%;
-      max-width: 280px;
-      height: 6px;
-      border-radius: 3px;
-      background: linear-gradient(
-        90deg,
-        rgba(228, 138, 36, 0.10) 0%,
-        rgba(228, 138, 36, 0.35) 50%,
-        rgba(228, 138, 36, 0.10) 100%
-      );
-      background-size: 200% 100%;
-      animation: calendly-shimmer 1.6s ease-in-out infinite;
-    }
-
-    @keyframes calendly-shimmer {
-      0%   { background-position: 200% 50%; }
-      100% { background-position: -200% 50%; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .calendly-skeleton-mark,
-      .calendly-skeleton-bar { animation: none; }
-    }
-
-    /* ── Confirm Panel ── */
-    .booking-confirm {
-      border: 1px solid #EEEEEE;
-      border-radius: 16px;
-      padding: 2.25rem;
-      transition: all var(--transition-smooth);
-      background: #ffffff;
-      box-shadow: var(--shadow-card);
-      position: sticky;
-      top: 6rem;
-      will-change: transform;
-    }
-
-    .booking-confirm:hover {
-      border-color: var(--brand-orange);
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-4px);
-    }
-
-    .booking-confirm h3 {
-      font-size: 16px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--brand-blue);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .booking-confirm h3::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 35%;
-      height: 2px;
-      background: var(--brand-orange);
-      transition: width 0.5s ease;
-    }
-
-    .booking-confirm:hover h3::after {
-      width: 100%;
-    }
-
-    .booking-confirm-details {
-      display: block;
-      animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .booking-confirm-info {
-      background: rgba(241, 243, 245, 0.3);
-      padding: 1.25rem;
-      border: 1px solid #EEEEEE;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      transition: all var(--transition-fast);
-    }
-
-    .booking-confirm:hover .booking-confirm-info {
-      border-color: rgba(228, 138, 36, 0.2);
-      background: rgba(241, 243, 245, 0.5);
-    }
-
-    .booking-confirm-info p {
-      font-size: 14px;
-      color: rgba(42, 58, 140, 0.75);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.5rem;
-      transition: color var(--transition-fast);
-    }
-    .booking-confirm-info p:last-child {
-      margin-bottom: 0;
-    }
-    .booking-confirm-info p:hover {
-      color: var(--brand-blue);
-    }
-
-    .booking-confirm-info svg {
-      color: var(--brand-orange);
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-      transition: transform var(--transition-fast);
-    }
-    .booking-confirm-info p:hover svg {
-      transform: scale(1.15) rotate(-4deg);
-    }
-
-    /* ── Form ── */
-    .booking-confirm .form-group {
-      margin-bottom: 1.25rem;
-      position: relative;
-    }
-
-    .booking-confirm .form-label {
-      font-size: 13px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--brand-blue);
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-      display: block;
-      transition: color var(--transition-fast);
-    }
-
-    .booking-confirm .form-group:focus-within .form-label {
-      color: var(--brand-orange);
-    }
-
-    .booking-confirm .form-input {
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border: 1px solid #E8E8E8;
-      width: 100%;
-      font-size: 16px;
-      transition: all var(--transition-fast);
-      background: #fcfcfc;
-      color: var(--brand-blue);
-      will-change: border-color, box-shadow;
-    }
-
-    .booking-confirm .form-input:focus {
-      border-color: var(--brand-orange);
-      box-shadow: 0 0 0 5px rgba(228, 138, 36, 0.08);
-      outline: none;
-      background: #ffffff;
-      transform: scale(1.01);
-    }
-
-    .booking-confirm .form-input::placeholder {
-      color: #bbb;
-      font-weight: 300;
-    }
-
-    /* ── Submit Button ── */
-    .booking-confirm-btn {
-      width: 100%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      font-size: 14px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 1.1rem 2rem;
-      background: var(--brand-orange);
-      color: #FFFFFF;
-      border: none;
-      border-radius: 10px;
-      transition: all var(--transition-smooth);
-      font-weight: 500;
-      cursor: pointer;
-      margin-top: 0.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .booking-confirm-btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-    }
-    .booking-confirm-btn:hover::after {
-      opacity: 1;
-    }
-
-    .booking-confirm-btn:hover {
-      background: var(--brand-blue);
-      transform: translateY(-3px) scale(1.015);
-      box-shadow: 0 12px 32px rgba(42, 58, 140, 0.25);
-    }
-
-    .booking-confirm-btn:active {
-      transform: scale(0.97);
-    }
-
-    .booking-confirm-btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      transform: none !important;
-    }
-
-    .booking-confirm-btn svg {
-      transition: transform var(--transition-fast);
-    }
-    .booking-confirm-btn:hover svg {
-      transform: translateX(4px) rotate(-4deg);
-    }
-
-    /* ── FAQ ── */
-    .booking-faq {
-      background: rgba(241, 243, 245, 0.2);
-      border-top: 2px solid var(--brand-orange);
-      padding: 5rem 0;
-      margin-top: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .booking-faq::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(228,138,36,0.03), transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    @media (min-width: 768px) {
-      .booking-faq {
-        padding: 7rem 0;
-      }
-    }
-
-    .booking-faq h2 {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      color: var(--brand-blue);
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
-    @media (min-width: 768px) {
-      .booking-faq h2 {
-        font-size: 2.8rem;
-      }
-    }
-
-    .booking-faq-list {
-      max-width: 56rem;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .booking-faq-item {
-      border-bottom: 1px solid rgba(228, 138, 36, 0.15);
-      transition: all var(--transition-fast);
-      border-radius: 8px;
-      padding: 0 0.5rem;
-    }
-    .booking-faq-item:first-child {
-      border-top: 1px solid rgba(228, 138, 36, 0.15);
-    }
-    .booking-faq-item:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    .booking-faq-question {
-      padding: 1.5rem 0.5rem 1.5rem 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      font-size: 18px;
-      color: var(--brand-blue);
-      font-weight: 500;
-      user-select: none;
-      transition: all var(--transition-fast);
-    }
-
-    @media (min-width: 768px) {
-      .booking-faq-question {
-        font-size: 20px;
-        padding: 1.75rem 0.5rem 1.75rem 0;
-      }
-    }
-
-    .booking-faq-question:hover {
-      color: var(--brand-orange);
-      padding-left: 0.5rem;
-    }
-
-    .booking-faq-icon {
-      color: var(--brand-orange);
-      font-size: 1.6rem;
-      font-weight: 300;
-      line-height: 1;
-      flex-shrink: 0;
-      width: 2rem;
-      height: 2rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .booking-faq-item.open .booking-faq-question {
-      color: var(--brand-orange);
-    }
-    .booking-faq-item.open .booking-faq-icon {
-      transform: rotate(45deg);
-    }
-
-    .booking-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .booking-faq-answer p {
-      padding: 0 0.5rem 1.5rem 0;
-      font-size: 16px;
-      color: rgba(42, 58, 140, 0.7);
-      line-height: 1.8;
-      margin: 0;
-    }
-    @media (min-width: 768px) {
-      .booking-faq-answer p {
-        font-size: 18px;
-        padding-bottom: 1.75rem;
-      }
-    }
-
-    /* ── Responsive ── */
-    .pt-\[110px\] {
-      padding-top: 110px;
-    }
-    @media (max-width: 768px) {
-      .pt-\[110px\] {
-        padding-top: 80px;
-      }
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ── Grain overlay ── */
-    .grain-overlay {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-    }
-
-    /* ── Reveal Animations (faster) ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.96);
-      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .reveal-scale.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* ── Performance ── */
-    .booking-confirm,
-    .booking-calendly-frame {
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      will-change: transform;
-    }
-
-    /* ── Small screen tweaks ── */
-    @media (max-width: 480px) {
-      .booking-header h1 {
-        font-size: 2rem;
-      }
-      .booking-header p {
-        font-size: 16px;
-      }
-      /* Use min-height so the calendar is never cropped on phones. */
-      .booking-calendly-frame {
-        height: clamp(680px, 105vh, 900px);
-        min-height: 680px;
-        border-radius: 10px;
-      }
-      .booking-confirm {
-        padding: 1.5rem;
-      }
-      .booking-confirm .form-input {
-        font-size: 15px;
-        padding: 0.7rem 0.9rem;
-      }
-      .booking-confirm-btn {
-        font-size: 12px;
-        padding: 0.9rem 1.5rem;
-      }
-      .booking-faq h2 {
-        font-size: 1.8rem;
-      }
-      .booking-faq-question {
-        font-size: 16px;
-        padding: 1.25rem 0;
-      }
-      .booking-faq-answer p {
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .booking-calendly-frame {
-        height: clamp(640px, 108vh, 800px);
-        min-height: 640px;
-      }
-      .booking-confirm-info p {
-        font-size: 13px;
-      }
-      .booking-confirm .form-label {
-        font-size: 12px;
-      }
-      .booking-confirm .form-input {
-        font-size: 14px;
-        padding: 0.6rem 0.8rem;
-      }
-    }
-
-    /* ── Medium screens — tablets / small laptops (18" monitors) ── */
-    @media (min-width: 481px) and (max-width: 767px) {
-      .booking-calendly-frame {
-        height: clamp(760px, 110vh, 1000px);
-        min-height: 760px;
-      }
-    }
-
-    /* ── 14"-18" laptops with 1366×768 / 1440×900 viewports ── */
-    @media (min-width: 1280px) and (max-width: 1439px) {
-      .booking-calendly-frame {
-        height: clamp(900px, 115vh, 1200px);
-      }
-    }
-
-    /* ── Large-screen typography (2560px / 4K and 3840px / 8K) ── */
-    @media (min-width: 2560px) {
-      .booking-header { padding: 8rem 0 4rem; }
-      .booking-header h1 { font-size: 5.4rem; }
-      .booking-header p { font-size: 26px; max-width: 44rem; }
-      .booking-calendly h3 { font-size: 18px; }
-      .booking-faq h2 { font-size: 3.6rem; margin-bottom: 3.5rem; }
-      .booking-faq-question { font-size: 26px; padding: 2.25rem 0.5rem 2.25rem 0; }
-      .booking-faq-answer p { font-size: 22px; }
-      .calendly-skeleton-label { font-size: 14px; }
-      .calendly-skeleton-mark { width: 76px; height: 76px; }
-    }
-
-    @media (min-width: 3840px) {
-      .booking-header { padding: 10rem 0 5rem; }
-      .booking-header h1 { font-size: 6.5rem; }
-      .booking-header p { font-size: 32px; max-width: 56rem; }
-      .booking-calendly h3 { font-size: 22px; }
-      .booking-faq h2 { font-size: 4.4rem; margin-bottom: 4.5rem; }
-      .booking-faq-question { font-size: 32px; padding: 2.75rem 0.5rem 2.75rem 0; }
-      .booking-faq-answer p { font-size: 28px; }
-      .calendly-skeleton-label { font-size: 18px; letter-spacing: 0.32em; }
-      .calendly-skeleton-mark { width: 96px; height: 96px; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Meeting - Gobind Dance Center</title>
+    <meta name="description" content="Schedule a session with Gobind Rai - free trial class, enrollment assessment, or 1-on-1 performance consultation." />
+
+    <link rel="icon" type="image/png" href="assets/icons/Febicone.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Calendly: warm the connection before the user reaches the widget -->
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+    <link rel="dns-prefetch" href="https://calendly.com" />
+
+    <!-- Calendly widget loader (async, in head so it starts downloading immediately and is ready by the time the user reaches the form). -->
+    <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/components/forms.css" />
+    <link rel="stylesheet" href="css/components/cards.css" />
+    <link rel="stylesheet" href="css/components/navbar.css" />
+    <link rel="stylesheet" href="js/components/navbar.js" />
+
+    <style>
+        /* ============================================================
+           BOOKING PAGE — ULTRA SMOOTH & ATTRACTIVE
+           ============================================================ */
+        :root {
+            --brand-orange: #E48A24;
+            --brand-blue: #2A3A8C;
+            --brand-light: #f1f3f5;
+            --brand-dark: #1f2b5a;
+            --transition-fast: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-smooth: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            --shadow-card: 0 4px 24px rgba(42, 58, 140, 0.06);
+            --shadow-hover: 0 16px 48px rgba(42, 58, 140, 0.10), 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ── Header ── */
+        .booking-header {
+            padding: 4rem 0 2.5rem;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .booking-header {
+                padding: 6rem 0 3rem;
+            }
+        }
+
+        .booking-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-orange), transparent);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .booking-header:hover::after {
+            width: 120px;
+        }
+
+        .booking-badge {
+            display: inline-block;
+            font-size: 14px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--brand-orange);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        .booking-badge::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 1.5rem;
+            height: 2px;
+            background: var(--brand-orange);
+            transform: translateY(-50%);
+            transition: width 0.5s ease;
+        }
+        .booking-header:hover .booking-badge::before {
+            width: 2.2rem;
+        }
+
+        .booking-header h1 {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            font-weight: 500;
+            line-height: 1.15;
+            color: var(--brand-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .booking-header h1 {
+                font-size: 3.6rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .booking-header h1 {
+                font-size: 4.2rem;
+            }
+        }
+
+        .booking-header p {
+            font-size: 18px;
+            color: rgba(42, 58, 140, 0.7);
+            max-width: 32rem;
+            line-height: 1.7;
+        }
+
+        @media (min-width: 768px) {
+            .booking-header p {
+                font-size: 20px;
+            }
+        }
+
+        /* ── Booking Grid (single column now — Confirm panel removed) ── */
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2.5rem auto 4rem;
+            max-width: 980px;
+        }
+
+        @media (min-width: 1024px) {
+            .booking-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* 8K / 75" 8K TV — let the booking grid breathe. */
+        @media (min-width: 2560px) {
+            .booking-grid {
+                max-width: 1800px;
+                margin: 3.5rem auto 6rem;
+            }
+        }
+
+        @media (min-width: 3840px) {
+            .booking-grid {
+                max-width: 2200px;
+                margin: 4.5rem auto 8rem;
+            }
+        }
+
+        /* ── Calendly ── */
+        .booking-calendly h3 {
+            font-size: 14px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--brand-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .booking-calendly h3::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--brand-orange);
+        }
+
+        .booking-calendly-frame {
+            width: 100%;
+            min-height: 720px;
+            height: clamp(720px, 110vh, 1200px);
+            border: 1px solid #EEEEEE;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9fb 0%, #eef1f6 100%);
+            position: relative;
+            box-shadow: var(--shadow-card);
+        }
+
+        /* Calendly's inline widget renders its own week/month grid inside the
+           iframe. 700px (the previous default) was just barely tall enough
+           and got cropped on most laptops. Use viewport-relative heights so
+           the calendar ALWAYS has enough room regardless of screen size. */
+        @media (min-width: 768px) {
+            .booking-calendly-frame {
+                height: clamp(820px, 115vh, 1200px);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .booking-calendly-frame {
+                height: clamp(900px, 118vh, 1300px);
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .booking-calendly-frame {
+                height: clamp(960px, 120vh, 1400px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .booking-calendly-frame {
+                height: 1100px;
+                border-radius: 16px;
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .booking-calendly-frame {
+                height: 1250px;
+                border-radius: 18px;
+            }
+        }
+        @media (min-width: 3840px) {
+            .booking-calendly-frame {
+                height: 1500px;
+                border-radius: 24px;
+            }
+        }
+
+        .booking-calendly-frame iframe {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+            border: 0;
+            position: relative;
+            z-index: 2;
+            display: block;
+        }
+
+        /* Calendly's script replaces `.calendly-inline-widget` with an iframe
+           that it sizes based on the parent. Give the host div the full
+           height so the iframe gets enough vertical space. */
+        .booking-calendly-frame .calendly-inline-widget {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+            display: block;
+        }
+
+        /* ── Confirm Panel ── */
+        .booking-confirm {
+            border: 1px solid #EEEEEE;
+            border-radius: 16px;
+            padding: 2.25rem;
+            transition: all var(--transition-smooth);
+            background: #ffffff;
+            box-shadow: var(--shadow-card);
+            position: sticky;
+            top: 6rem;
+            will-change: transform;
+        }
+
+        .booking-confirm:hover {
+            border-color: var(--brand-orange);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .booking-confirm h3 {
+            font-size: 16px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brand-blue);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .booking-confirm h3::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 35%;
+            height: 2px;
+            background: var(--brand-orange);
+            transition: width 0.5s ease;
+        }
+
+        .booking-confirm:hover h3::after {
+            width: 100%;
+        }
+
+        .booking-confirm-details {
+            display: block;
+            animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .booking-confirm-info {
+            background: rgba(241, 243, 245, 0.3);
+            padding: 1.25rem;
+            border: 1px solid #EEEEEE;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-fast);
+        }
+
+        .booking-confirm:hover .booking-confirm-info {
+            border-color: rgba(228, 138, 36, 0.2);
+            background: rgba(241, 243, 245, 0.5);
+        }
+
+        .booking-confirm-info p {
+            font-size: 14px;
+            color: rgba(42, 58, 140, 0.75);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            transition: color var(--transition-fast);
+        }
+        .booking-confirm-info p:last-child {
+            margin-bottom: 0;
+        }
+        .booking-confirm-info p:hover {
+            color: var(--brand-blue);
+        }
+
+        .booking-confirm-info svg {
+            color: var(--brand-orange);
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            transition: transform var(--transition-fast);
+        }
+        .booking-confirm-info p:hover svg {
+            transform: scale(1.15) rotate(-4deg);
+        }
+
+        /* ── Form ── */
+        .booking-confirm .form-group {
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        .booking-confirm .form-label {
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--brand-blue);
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            display: block;
+            transition: color var(--transition-fast);
+        }
+
+        .booking-confirm .form-group:focus-within .form-label {
+            color: var(--brand-orange);
+        }
+
+        .booking-confirm .form-input {
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #E8E8E8;
+            width: 100%;
+            font-size: 16px;
+            transition: all var(--transition-fast);
+            background: #fcfcfc;
+            color: var(--brand-blue);
+            will-change: border-color, box-shadow;
+        }
+
+        .booking-confirm .form-input:focus {
+            border-color: var(--brand-orange);
+            box-shadow: 0 0 0 5px rgba(228, 138, 36, 0.08);
+            outline: none;
+            background: #ffffff;
+            transform: scale(1.01);
+        }
+
+        .booking-confirm .form-input::placeholder {
+            color: #bbb;
+            font-weight: 300;
+        }
+
+        /* ── Submit Button ── */
+        .booking-confirm-btn {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 1.1rem 2rem;
+            background: var(--brand-orange);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            transition: all var(--transition-smooth);
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-confirm-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .booking-confirm-btn:hover::after {
+            opacity: 1;
+        }
+
+        .booking-confirm-btn:hover {
+            background: var(--brand-blue);
+            transform: translateY(-3px) scale(1.015);
+            box-shadow: 0 12px 32px rgba(42, 58, 140, 0.25);
+        }
+
+        .booking-confirm-btn:active {
+            transform: scale(0.97);
+        }
+
+        .booking-confirm-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .booking-confirm-btn svg {
+            transition: transform var(--transition-fast);
+        }
+        .booking-confirm-btn:hover svg {
+            transform: translateX(4px) rotate(-4deg);
+        }
+
+        /* ── FAQ ── */
+        .booking-faq {
+            background: rgba(241, 243, 245, 0.2);
+            border-top: 2px solid var(--brand-orange);
+            padding: 5rem 0;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-faq::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(228, 138, 36, 0.03), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @media (min-width: 768px) {
+            .booking-faq {
+                padding: 7rem 0;
+            }
+        }
+
+        .booking-faq h2 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--brand-blue);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .booking-faq h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        .booking-faq-list {
+            max-width: 56rem;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .booking-faq-item {
+            border-bottom: 1px solid rgba(228, 138, 36, 0.15);
+            transition: all var(--transition-fast);
+            border-radius: 8px;
+            padding: 0 0.5rem;
+        }
+        .booking-faq-item:first-child {
+            border-top: 1px solid rgba(228, 138, 36, 0.15);
+        }
+        .booking-faq-item:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .booking-faq-question {
+            padding: 1.5rem 0.5rem 1.5rem 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 18px;
+            color: var(--brand-blue);
+            font-weight: 500;
+            user-select: none;
+            transition: all var(--transition-fast);
+        }
+
+        @media (min-width: 768px) {
+            .booking-faq-question {
+                font-size: 20px;
+                padding: 1.75rem 0.5rem 1.75rem 0;
+            }
+        }
+
+        .booking-faq-question:hover {
+            color: var(--brand-orange);
+            padding-left: 0.5rem;
+        }
+
+        .booking-faq-icon {
+            color: var(--brand-orange);
+            font-size: 1.6rem;
+            font-weight: 300;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .booking-faq-item.open .booking-faq-question {
+            color: var(--brand-orange);
+        }
+        .booking-faq-item.open .booking-faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .booking-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .booking-faq-answer p {
+            padding: 0 0.5rem 1.5rem 0;
+            font-size: 16px;
+            color: rgba(42, 58, 140, 0.7);
+            line-height: 1.8;
+            margin: 0;
+        }
+        @media (min-width: 768px) {
+            .booking-faq-answer p {
+                font-size: 18px;
+                padding-bottom: 1.75rem;
+            }
+        }
+
+        /* ── Responsive ── */
+        .pt-\[110px\] {
+            padding-top: 110px;
+        }
+        @media (max-width: 768px) {
+            .pt-\[110px\] {
+                padding-top: 80px;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── Grain overlay ── */
+        .grain-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        /* ── Reveal Animations (faster) ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.96);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ── Performance ── */
+        .booking-confirm,
+        .booking-calendly-frame {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            will-change: transform;
+        }
+
+        /* ── Small screen tweaks ── */
+        @media (max-width: 480px) {
+            .booking-header h1 {
+                font-size: 2rem;
+            }
+            .booking-header p {
+                font-size: 16px;
+            }
+            .booking-calendly-frame {
+                height: clamp(680px, 105vh, 900px);
+                min-height: 680px;
+                border-radius: 10px;
+            }
+            .booking-confirm {
+                padding: 1.5rem;
+            }
+            .booking-confirm .form-input {
+                font-size: 15px;
+                padding: 0.7rem 0.9rem;
+            }
+            .booking-confirm-btn {
+                font-size: 12px;
+                padding: 0.9rem 1.5rem;
+            }
+            .booking-faq h2 {
+                font-size: 1.8rem;
+            }
+            .booking-faq-question {
+                font-size: 16px;
+                padding: 1.25rem 0;
+            }
+            .booking-faq-answer p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .booking-calendly-frame {
+                height: clamp(640px, 108vh, 800px);
+                min-height: 640px;
+            }
+            .booking-confirm-info p {
+                font-size: 13px;
+            }
+            .booking-confirm .form-label {
+                font-size: 12px;
+            }
+            .booking-confirm .form-input {
+                font-size: 14px;
+                padding: 0.6rem 0.8rem;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) {
+            .booking-calendly-frame {
+                height: clamp(760px, 110vh, 1000px);
+                min-height: 760px;
+            }
+        }
+
+        @media (min-width: 1280px) and (max-width: 1439px) {
+            .booking-calendly-frame {
+                height: clamp(900px, 115vh, 1200px);
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .booking-header {
+                padding: 8rem 0 4rem;
+            }
+            .booking-header h1 {
+                font-size: 5.4rem;
+            }
+            .booking-header p {
+                font-size: 26px;
+                max-width: 44rem;
+            }
+            .booking-calendly h3 {
+                font-size: 18px;
+            }
+            .booking-faq h2 {
+                font-size: 3.6rem;
+                margin-bottom: 3.5rem;
+            }
+            .booking-faq-question {
+                font-size: 26px;
+                padding: 2.25rem 0.5rem 2.25rem 0;
+            }
+            .booking-faq-answer p {
+                font-size: 22px;
+            }
+        }
+
+        @media (min-width: 3840px) {
+            .booking-header {
+                padding: 10rem 0 5rem;
+            }
+            .booking-header h1 {
+                font-size: 6.5rem;
+            }
+            .booking-header p {
+                font-size: 32px;
+                max-width: 56rem;
+            }
+            .booking-calendly h3 {
+                font-size: 22px;
+            }
+            .booking-faq h2 {
+                font-size: 4.4rem;
+                margin-bottom: 4.5rem;
+            }
+            .booking-faq-question {
+                font-size: 32px;
+                padding: 2.75rem 0.5rem 2.75rem 0;
+            }
+            .booking-faq-answer p {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 <body class="grain-overlay">
-  <div id="navbar-container"></div>
+    <div id="navbar-container"></div>
 
-  <main class="pt-[110px]">
-    <div class="container">
-      <!-- Header -->
-      <header class="booking-header">
-        <span class="booking-badge reveal">Appointments</span>
-        <h1 class="reveal">Schedule a Session</h1>
-        <p class="reveal" style="transition-delay: 0.08s;">
-          Book an interview, enrollment assessment, or 1‑on‑1 performance consultation with Guru Gobind Rai.
-        </p>
-      </header>
+    <main class="pt-[110px]">
+        <div class="container">
+            <!-- Header -->
+            <header class="booking-header">
+                <span class="booking-badge reveal">Appointments</span>
+                <h1 class="reveal">Schedule a Session</h1>
+                <p class="reveal" style="transition-delay: 0.08s;">
+                    Book an interview, enrollment assessment, or 1‑on‑1 performance consultation with Guru Gobind Rai.
+                </p>
+            </header>
 
-      <!-- Booking Section — Calendly only -->
-      <section id="booking-section">
-        <div class="booking-grid">
-          <!-- Calendly -->
-          <div class="booking-calendly reveal-scale">
-            <h3>Schedule via Calendly</h3>
-            <div class="booking-calendly-frame" id="calendly-frame">
-              <!-- Skeleton loader (visible until iframe loads) -->
-              <div class="calendly-skeleton" aria-hidden="true">
-                <div class="calendly-skeleton-mark"></div>
-                <div class="calendly-skeleton-label">Loading calendar</div>
-                <div class="calendly-skeleton-bar"></div>
-              </div>
-              <!-- Calendly inline widget begin -->
-              <div class="calendly-inline-widget" data-url="https://calendly.com/techcraftershub-official/30min?text_color=2a3a8c&primary_color=e48a24" style="min-width:100%;width:100%;height:100%;"></div>
-              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-              <!-- Calendly inline widget end -->
-            </div>
-          </div>
+            <!-- Booking Section — Calendly only -->
+            <section id="booking-section">
+                <div class="booking-grid">
+                    <!-- Calendly -->
+                    <div class="booking-calendly reveal-scale">
+                        <h3>Schedule via Calendly</h3>
+                        <div class="booking-calendly-frame" id="calendly-frame">
+                            <div class="calendly-inline-widget" data-url="https://calendly.com/techcraftershub-official/30min?text_color=2a3a8c&primary_color=e48a24" style="min-width:100%;width:100%;height:100%;"></div>
+                            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async>
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </section>
-    </div>
 
-    <!-- FAQ -->
-    <section class="booking-faq">
-      <div class="container" style="max-width: 800px;">
-        <h2 class="reveal">Frequently Asked Questions</h2>
-        <div class="booking-faq-list">
-          <div class="booking-faq-item">
-            <div class="booking-faq-question" onclick="toggleFAQ(this)">
-              Do I need prior dance experience?
-              <span class="booking-faq-icon" aria-hidden="true">+</span>
+        <!-- FAQ -->
+        <section class="booking-faq">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="reveal">Frequently Asked Questions</h2>
+                <div class="booking-faq-list">
+                    <div class="booking-faq-item">
+                        <div class="booking-faq-question" onclick="toggleFAQ(this)">
+                            Do I need prior dance experience?
+                            <span class="booking-faq-icon" aria-hidden="true">+</span>
+                        </div>
+                        <div class="booking-faq-answer" id="faq-1">
+                            <p>Not at all. We welcome absolute beginners as well as professional dancers. Guru Gobind tailors his instruction to every skill level.</p>
+                        </div>
+                    </div>
+                    <div class="booking-faq-item">
+                        <div class="booking-faq-question" onclick="toggleFAQ(this)">
+                            What should I wear to class?
+                            <span class="booking-faq-icon" aria-hidden="true">+</span>
+                        </div>
+                        <div class="booking-faq-answer" id="faq-2">
+                            <p>Comfortable, flexible clothing. For traditional classes, you may be asked to wear ethnic attire. Bare feet or soft dance shoes are recommended.</p>
+                        </div>
+                    </div>
+                    <div class="booking-faq-item">
+                        <div class="booking-faq-question" onclick="toggleFAQ(this)">
+                            How long is each class?
+                            <span class="booking-faq-icon" aria-hidden="true">+</span>
+                        </div>
+                        <div class="booking-faq-answer" id="faq-3">
+                            <p>Group sessions typically run 60–90 minutes. Private lessons are 60 minutes. Assessment consultations are approximately 30 minutes.</p>
+                        </div>
+                    </div>
+                    <div class="booking-faq-item">
+                        <div class="booking-faq-question" onclick="toggleFAQ(this)">
+                            Is there parking available?
+                            <span class="booking-faq-icon" aria-hidden="true">+</span>
+                        </div>
+                        <div class="booking-faq-answer" id="faq-4">
+                            <p>Street parking is available around 76th St. The studio is also easily accessible via the 7 train (Jackson Heights–Roosevelt Ave station).</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="booking-faq-answer" id="faq-1">
-              <p>Not at all. We welcome absolute beginners as well as professional dancers. Guru Gobind tailors his instruction to every skill level.</p>
-            </div>
-          </div>
-          <div class="booking-faq-item">
-            <div class="booking-faq-question" onclick="toggleFAQ(this)">
-              What should I wear to class?
-              <span class="booking-faq-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="booking-faq-answer" id="faq-2">
-              <p>Comfortable, flexible clothing. For traditional classes, you may be asked to wear ethnic attire. Bare feet or soft dance shoes are recommended.</p>
-            </div>
-          </div>
-          <div class="booking-faq-item">
-            <div class="booking-faq-question" onclick="toggleFAQ(this)">
-              How long is each class?
-              <span class="booking-faq-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="booking-faq-answer" id="faq-3">
-              <p>Group sessions typically run 60–90 minutes. Private lessons are 60 minutes. Assessment consultations are approximately 30 minutes.</p>
-            </div>
-          </div>
-          <div class="booking-faq-item">
-            <div class="booking-faq-question" onclick="toggleFAQ(this)">
-              Is there parking available?
-              <span class="booking-faq-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="booking-faq-answer" id="faq-4">
-              <p>Street parking is available around 76th St. The studio is also easily accessible via the 7 train (Jackson Heights–Roosevelt Ave station).</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 
-  <div id="footer-container"></div>
+    <div id="footer-container"></div>
 
-  <!-- ── Scripts ── -->
-  <script>
-    // ── FAQ Toggle ──
-    function toggleFAQ(element) {
-      const item = element.closest('.booking-faq-item');
-      if (!item) return;
-      const isOpen = item.classList.contains('open');
-      // Close others
-      document.querySelectorAll('.booking-faq-item.open').forEach(el => {
-        if (el !== item) {
-          el.classList.remove('open');
-          const answer = el.querySelector('.booking-faq-answer');
-          if (answer) answer.style.maxHeight = '0px';
-        }
-      });
-      if (isOpen) {
-        item.classList.remove('open');
-        const answer = item.querySelector('.booking-faq-answer');
-        if (answer) answer.style.maxHeight = '0px';
-      } else {
-        item.classList.add('open');
-        const answer = item.querySelector('.booking-faq-answer');
-        if (answer) {
-          const inner = answer.querySelector('p');
-          if (inner) answer.style.maxHeight = inner.scrollHeight + 40 + 'px';
-        }
-      }
-    }
-
-    // ── Scroll Reveal ──
-    document.addEventListener('DOMContentLoaded', function() {
-      const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -20px 0px'
-      });
-      revealElements.forEach(el => observer.observe(el));
-    });
-
-    // ── Calendly load detection (IntersectionObserver-driven) ──
-    // Calendly's widget script replaces the .calendly-inline-widget
-    // div with an iframe asynchronously. We only start polling when
-    // the widget is near the viewport (so we don't waste cycles on
-    // pages where the user never reaches the booking section), and
-    // we listen to BOTH the iframe load event AND the page visibility
-    // event so the skeleton fades the instant the iframe is ready.
-    (function watchCalendly() {
-      const frame = document.getElementById('calendly-frame');
-      if (!frame) return;
-
-      let active = false;
-      let attempts = 0;
-      const maxAttempts = 60; // ~12s @ 200ms once user reaches widget
-
-      const markReady = () => {
-        if (frame.classList.contains('is-ready')) return;
-        // small delay so the fade reads as smooth, not as a flash
-        requestAnimationFrame(() => frame.classList.add('is-ready'));
-      };
-
-      const tick = () => {
-        attempts++;
-        const iframe = frame.querySelector('iframe');
-        if (iframe) {
-          // Hook the load event exactly once.
-          iframe.addEventListener('load', () => setTimeout(markReady, 120), { once: true });
-          // If it already loaded by the time we found it, mark ready.
-          if (iframe.complete) markReady();
-          active = false;
-          return;
-        }
-        if (attempts < maxAttempts && active) {
-          setTimeout(tick, 200);
-        } else if (attempts >= maxAttempts) {
-          // Never leave the user stranded on a skeleton — reveal it.
-          markReady();
-          active = false;
-        }
-      };
-
-      // Wait until the user scrolls near the booking section before
-      // we start polling — saves cycles on the common case where the
-      // booking page is opened directly but the user hasn't focused it.
-      const startIfNear = () => {
-        if (active) return;
-        active = true;
-        tick();
-      };
-
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              startIfNear();
-              io.disconnect();
-              break;
+    <!-- ── Scripts ── -->
+    <script>
+        // ── FAQ Toggle ──
+        function toggleFAQ(element) {
+            const item = element.closest('.booking-faq-item');
+            if (!item) return;
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.booking-faq-item.open').forEach(el => {
+                if (el !== item) {
+                    el.classList.remove('open');
+                    const answer = el.querySelector('.booking-faq-answer');
+                    if (answer) answer.style.maxHeight = '0px';
+                }
+            });
+            if (isOpen) {
+                item.classList.remove('open');
+                const answer = item.querySelector('.booking-faq-answer');
+                if (answer) answer.style.maxHeight = '0px';
+            } else {
+                item.classList.add('open');
+                const answer = item.querySelector('.booking-faq-answer');
+                if (answer) {
+                    const inner = answer.querySelector('p');
+                    if (inner) answer.style.maxHeight = inner.scrollHeight + 40 + 'px';
+                }
             }
-          }
-        }, { rootMargin: '200px 0px' }); // start 200px before visible
-        io.observe(frame);
-        // Also start immediately if Calendly global is already loaded
-        // (rare, but covers a fast network where the widget loads
-        // before we observe the element).
-        if (window.Calendly && window.Calendly.initInlineWidget) startIfNear();
-      } else {
-        // Fallback: just start polling.
-        startIfNear();
-      }
-
-      // Calendly also fires a global event when its widget is fully
-      // initialized — listen for that as a faster signal than polling.
-      window.addEventListener('message', (e) => {
-        if (e && e.data && typeof e.data === 'string' && e.data.indexOf('calendly') !== -1
-            && /event_type_scheduled|widget_ready|profile_page_viewed/.test(e.data)) {
-          markReady();
         }
-      }, { passive: true });
-    })();
-  </script>
 
-  <!-- External scripts -->
-  <script src="js/emailjs-config.js"></script>
-  <script src="js/utilities.js"></script>
-  <script src="js/components/navbar.js"></script>
-  <script src="js/components/footer.js"></script>
-  <script src="js/components/scroll.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/loader.js"></script>
+        // ── Scroll Reveal ──
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: '0px 0px -20px 0px'
+            });
+            revealElements.forEach(el => observer.observe(el));
+        });
+
+        // ── Calendly iframe ready signal ──
+        (function watchCalendly() {
+            const frame = document.getElementById('calendly-frame');
+            if (!frame) return;
+
+            const markReady = () => {
+                if (frame.classList.contains('is-ready')) return;
+                requestAnimationFrame(() => frame.classList.add('is-ready'));
+            };
+
+            let attempts = 0;
+            const maxAttempts = 80;
+
+            const tick = () => {
+                attempts++;
+                const iframe = frame.querySelector('iframe');
+                if (iframe) {
+                    iframe.addEventListener('load', () => setTimeout(markReady, 120), { once: true });
+                    if (iframe.complete) markReady();
+                    return;
+                }
+                if (attempts < maxAttempts) setTimeout(tick, 200);
+                else markReady();
+            };
+            tick();
+
+            window.addEventListener('message', (e) => {
+                if (e && e.data && typeof e.data === 'string' && e.data.indexOf('calendly') !== -1 &&
+                    /event_type_scheduled|widget_ready|profile_page_viewed/.test(e.data)) {
+                    markReady();
+                }
+            }, { passive: true });
+        })();
+    </script>
+
+    <!-- External scripts -->
+    <script src="js/emailjs-config.js">
+    </script>
+    <script src="js/utilities.js">
+    </script>
+    <script src="js/components/navbar.js">
+    </script>
+    <script src="js/components/footer.js">
+    </script>
+    <script src="js/components/scroll.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+
+    <!--
+    Booking-page loader — UPDATED: White blur effect.
+    Shows only the pulsing logo for exactly 6 seconds.
+    The backdrop uses a semi-transparent white background with a strong blur,
+    completely obscuring the page content while maintaining a bright aesthetic.
+    -->
+    <script>
+        (function() {
+            'use strict';
+
+            if (!document.body.classList.contains('grain-overlay')) return;
+            if (!document.getElementById('calendly-frame')) return;
+
+            const HOLD_MS = 6000;
+            const logoPath = 'assets/icons/Febicone.png';
+
+            function injectStyles() {
+                if (document.getElementById('gda-booking-loader-style')) return;
+                const css = [
+                    '.gda-bk-loader,',
+                    '.gda-bk-loader *,',
+                    '.gda-bk-loader *::before,',
+                    '.gda-bk-loader *::after {',
+                    '  box-sizing: border-box;',
+                    '  margin: 0;',
+                    '  padding: 0;',
+                    '}',
+
+                    '@keyframes gda-bk-loader-enter {',
+                    '  from { opacity: 0; }',
+                    '  to   { opacity: 1; }',
+                    '}',
+
+                    '.gda-bk-loader {',
+                    '  position: fixed;',
+                    '  inset: 0;',
+                    '  width: 100vw;',
+                    '  height: 100vh;',
+                    '  height: 100dvh;',
+                    '  z-index: 2147483646;',
+                    '  display: flex;',
+                    '  align-items: center;',
+                    '  justify-content: center;',
+                    '  overflow: hidden;',
+                    '  pointer-events: auto;',
+                    '  -webkit-tap-highlight-color: transparent;',
+                    '  isolation: isolate;',
+                    '  animation: gda-bk-loader-enter 220ms ease-out both;',
+                    '}',
+
+                    // ── WHITE BLUR BACKDROP ──
+                    // Semi-transparent white with a strong blur effect.
+                    // Completely obscures the content underneath while looking clean.
+                    '.gda-bk-loader__backdrop {',
+                    '  position: absolute;',
+                    '  inset: 0;',
+                    '  background: rgba(255, 255, 255, 0.88);',
+                    '  backdrop-filter: blur(30px) saturate(180%);',
+                    '  -webkit-backdrop-filter: blur(30px) saturate(180%);',
+                    '  opacity: 1;',
+                    '  transition: opacity 450ms ease-out;',
+                    '  will-change: opacity;',
+                    '}',
+
+                    '@keyframes gda-bk-loader-stack-enter {',
+                    '  from {',
+                    '    opacity: 0;',
+                    '    transform: translateY(8px) scale(0.96);',
+                    '  }',
+                    '  to {',
+                    '    opacity: 1;',
+                    '    transform: translateY(0) scale(1);',
+                    '  }',
+                    '}',
+
+                    '.gda-bk-loader__stack {',
+                    '  position: relative;',
+                    '  z-index: 1;',
+                    '  display: flex;',
+                    '  flex-direction: column;',
+                    '  align-items: center;',
+                    '  justify-content: center;',
+                    '  gap: clamp(18px, 2.5vw, 28px);',
+                    '  transform: translateZ(0);',
+                    '  will-change: transform, opacity;',
+                    '  opacity: 0;',
+                    '  animation: gda-bk-loader-stack-enter 360ms cubic-bezier(0.22, 1, 0.36, 1) 80ms forwards;',
+                    '}',
+
+                    '@keyframes gda-bk-loader-pulse {',
+                    '  0%   {',
+                    '    transform: scale(1);',
+                    '    filter: drop-shadow(0 0 14px rgba(228, 138, 36, 0.28))',
+                    '            drop-shadow(0 6px 18px rgba(0, 0, 0, 0.15));',
+                    '  }',
+                    '  50%  {',
+                    '    transform: scale(1.18);',
+                    '    filter: drop-shadow(0 0 28px rgba(228, 138, 36, 0.6))',
+                    '            drop-shadow(0 10px 26px rgba(0, 0, 0, 0.25));',
+                    '  }',
+                    '  100% {',
+                    '    transform: scale(1);',
+                    '    filter: drop-shadow(0 0 14px rgba(228, 138, 36, 0.28))',
+                    '            drop-shadow(0 6px 18px rgba(0, 0, 0, 0.15));',
+                    '  }',
+                    '}',
+
+                    '.gda-bk-loader__logo-wrap {',
+                    '  position: relative;',
+                    '  width: clamp(80px, 13vw, 140px);',
+                    '  aspect-ratio: 1 / 1;',
+                    '  display: flex;',
+                    '  align-items: center;',
+                    '  justify-content: center;',
+                    '  will-change: transform, opacity, filter;',
+                    '  animation: gda-bk-loader-pulse 1400ms cubic-bezier(0.45, 0, 0.55, 1) infinite;',
+                    '}',
+
+                    '.gda-bk-loader__logo {',
+                    '  width: 100%;',
+                    '  height: 100%;',
+                    '  object-fit: contain;',
+                    '  display: block;',
+                    '  user-select: none;',
+                    '  -webkit-user-drag: none;',
+                    '  pointer-events: none;',
+                    '}',
+
+                    '@keyframes gda-bk-loader-zoom-out {',
+                    '  0%   { transform: scale(1);    opacity: 1; }',
+                    '  100% { transform: scale(1.25); opacity: 0; }',
+                    '}',
+
+                    '.gda-bk-loader.is-completing .gda-bk-loader__stack {',
+                    '  animation: gda-bk-loader-zoom-out 350ms cubic-bezier(0.4, 0, 0.2, 1) forwards;',
+                    '}',
+                    '.gda-bk-loader.is-completing .gda-bk-loader__logo-wrap {',
+                    '  animation: none;',
+                    '}',
+
+                    '.gda-bk-loader.is-leaving .gda-bk-loader__backdrop {',
+                    '  opacity: 0;',
+                    '}',
+                    '.gda-bk-loader.is-leaving {',
+                    '  visibility: hidden;',
+                    '  transition: visibility 0s linear 450ms;',
+                    '}',
+
+                    '@media (min-width: 1920px) {',
+                    '  .gda-bk-loader__logo-wrap { width: 140px; }',
+                    '}',
+                    '@media (max-width: 380px) {',
+                    '  .gda-bk-loader__logo-wrap { width: 80px; }',
+                    '  .gda-bk-loader__stack { gap: 18px; }',
+                    '}',
+                ].join('\n');
+                const tag = document.createElement('style');
+                tag.id = 'gda-booking-loader-style';
+                tag.textContent = css;
+                document.head.appendChild(tag);
+            }
+
+            function buildMarkup() {
+                return (
+                    '<div class="gda-bk-loader" role="status" aria-live="polite" aria-label="Loading">' +
+                    '<div class="gda-bk-loader__backdrop"></div>' +
+                    '<div class="gda-bk-loader__stack">' +
+                    '<div class="gda-bk-loader__logo-wrap">' +
+                    '<img class="gda-bk-loader__logo" src="' + logoPath + '" alt="Loading" draggable="false">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                );
+            }
+
+            function mount() {
+                if (!document.body) return null;
+                const previousOverflow = document.body.style.overflow;
+                document.body.style.overflow = 'hidden';
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = buildMarkup();
+                const node = wrapper.firstElementChild;
+                document.body.insertBefore(node, document.body.firstChild);
+                return {
+                    node,
+                    restoreScroll: () => {
+                        document.body.style.overflow = previousOverflow || '';
+                    },
+                };
+            }
+
+            function exit(handle) {
+                if (!handle || !handle.node || !handle.node.isConnected) return;
+                handle.node.classList.add('is-completing');
+                handle.node.classList.add('is-leaving');
+                window.setTimeout(() => {
+                    if (handle.node.parentNode) {
+                        handle.node.parentNode.removeChild(handle.node);
+                    }
+                    handle.restoreScroll();
+                }, 500);
+            }
+
+            function waitForGlobalLoaderExit(timeoutMs) {
+                return new Promise((resolve) => {
+                    const globalLoader = document.querySelector('.gda-loader');
+                    if (!globalLoader) {
+                        window.setTimeout(resolve, Math.min(timeoutMs, 300));
+                        return;
+                    }
+                    let resolved = false;
+                    const done = () => {
+                        if (resolved) return;
+                        resolved = true;
+                        obs.disconnect();
+                        window.clearTimeout(safetyTimer);
+                        resolve();
+                    };
+                    const obs = new MutationObserver(() => {
+                        if (!globalLoader.isConnected) { done(); return; }
+                        if (globalLoader.classList.contains('is-leaving')) { done(); return; }
+                    });
+                    obs.observe(globalLoader, {
+                        attributes: true,
+                        attributeFilter: ['class'],
+                    });
+                    obs.observe(document.body, {
+                        childList: true,
+                        subtree: false,
+                    });
+                    const safetyTimer = window.setTimeout(done, timeoutMs);
+                    if (!globalLoader.isConnected) done();
+                });
+            }
+
+            function startBookingLoader() {
+                injectStyles();
+
+                const handle = mount();
+                if (!handle) return;
+                const node = handle.node;
+                let exited = false;
+
+                const exitTimer = window.setTimeout(() => {
+                    if (exited || !node.isConnected) return;
+                    exited = true;
+                    exit(handle);
+                }, HOLD_MS);
+
+                const removalObserver = new MutationObserver(() => {
+                    if (!node.isConnected) {
+                        window.clearTimeout(exitTimer);
+                        removalObserver.disconnect();
+                        handle.restoreScroll();
+                    }
+                });
+                removalObserver.observe(document.body, { childList: true, subtree: true });
+
+                node._bkCleanup = () => {
+                    window.clearTimeout(exitTimer);
+                    removalObserver.disconnect();
+                    if (node.parentNode) node.parentNode.removeChild(node);
+                    handle.restoreScroll();
+                };
+            }
+
+            function bootstrap() {
+                waitForGlobalLoaderExit(5000).then(startBookingLoader);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', bootstrap, { once: true });
+            } else {
+                bootstrap();
+            }
+        })();
+    </script>
 </body>
 </html>

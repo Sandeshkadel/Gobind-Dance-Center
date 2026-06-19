@@ -810,12 +810,14 @@
             }
         }
 
+        /* ── BASE: all items get a left border ── */
         .stats-item {
             padding: 2rem 0.5rem;
             text-align: center;
             border-left: 1px solid rgba(255, 255, 255, 0.15);
         }
 
+        /* ── DESKTOP (4 columns): only the first item has no left border ── */
         .stats-item:first-child {
             border-left: none;
         }
@@ -841,6 +843,16 @@
         @media (min-width: 2560px) {
             .stats-item {
                 padding: 5.5rem 2rem;
+            }
+        }
+
+        /* ── MOBILE FIX (2 columns): remove left border from odd-numbered items
+               so the first item of each row (items 1 and 3) has no border.
+               This prevents the white line from appearing on the left edge
+               of the second row on small screens. ── */
+        @media (max-width: 767px) {
+            .stats-item:nth-child(odd) {
+                border-left: none;
             }
         }
 

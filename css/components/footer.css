@@ -241,6 +241,7 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  flex-wrap: wrap; /* let icons wrap on the narrowest phones instead of overflowing */
 }
 
 @media (min-width: 1920px) {
@@ -318,6 +319,18 @@
       artwork, and no awkward padding inside it. */
 .footer-social-link img.footer-social-img {
   display: block;
+  width: 37px;
+  height: 37px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.footer-social-link img.footer-social-img1 {
+  display: block;
   width: 30px;
   height: 30px;
   position: relative;
@@ -340,25 +353,30 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+.footer-social-link:has(img.footer-social-img),
+.footer-social-link--img1 {
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
 @media (min-width: 1920px) {
   .footer-social-link svg {
     width: 26px;
     height: 26px;
   }
   .footer-social-link img.footer-social-img {
-    width: 34px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
   }
 }
 
 @media (min-width: 2560px) {
   .footer-social-link svg {
-    width: 30px;
-    height: 30px;
-  }
-  .footer-social-link img.footer-social-img {
     width: 40px;
     height: 40px;
+  }
+  .footer-social-link img.footer-social-img {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -809,18 +827,18 @@
   }
 
   .footer-social-link {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
   }
 
   .footer-social-link svg {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
   }
 
   .footer-social-link img.footer-social-img {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
 
   .footer-cta {
@@ -861,19 +879,30 @@
     font-size: 12px;
   }
 
-  /* Brand logos stay prominent on the smallest screens. */
+  /* Brand logos stay prominent on the smallest screens — 5 icons
+     need to fit comfortably inside the grid column, so we trim them
+     down a touch here and let the row wrap if it still overflows. */
+  .footer-social {
+    gap: 0.4rem;
+  }
+
   .footer-social-link {
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
   }
 
   .footer-social-link svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 
   .footer-social-link img.footer-social-img {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
   }
 }
+
+  .footer-social-link img.footer-social-img1 {
+    width: 30px;
+    height: 30px;
+  }

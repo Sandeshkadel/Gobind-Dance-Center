@@ -40,22 +40,17 @@ function createFooterHTML() {
               Preserving heritage through movement. Over three decades of cinematic choreography, cultural education, and artistic excellence.
             </p>
             <div class="footer-social">
-              <a href="https://facebook.com/gobind.rai.5" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook">
-                <!-- Facebook brand logo (real image) -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
-                  <path fill="#1877F2" d="M24 4C12.95 4 4 12.95 4 24c0 9.99 7.31 18.27 16.79 19.83V29.84h-5.05V24h5.05v-4.41c0-4.99 2.97-7.74 7.51-7.74 2.18 0 4.45.39 4.45.39v4.9h-2.51c-2.47 0-3.24 1.53-3.24 3.1V24h5.51l-.88 5.84h-4.63v13.99C36.69 42.27 44 33.99 44 24 44 12.95 35.05 4 24 4z"/>
-                </svg>
+              <a href="https://facebook.com/gobind.rai.5" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img1" aria-label="YouTube">
+                <!-- Real YouTube brand logo (image file) -->
+                <img src="assets/icons/facebook.avif" alt="YouTube" class="footer-social-img" loading="lazy" />
               </a>
-              <a href="https://wa.me/19296417574" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="WhatsApp">
-                <!-- WhatsApp brand logo (real image) -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
-                  <path fill="#25D366" d="M24 4C12.95 4 4 12.95 4 24c0 3.7 1.02 7.16 2.78 10.13L4 44l10.13-2.65A19.9 19.9 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4z"/>
-                  <path fill="#FFFFFF" d="M33.6 28.4c-.5-.25-2.95-1.45-3.4-1.62-.45-.16-.78-.25-1.12.25-.33.5-1.27 1.62-1.56 1.95-.29.33-.57.37-1.07.12-.5-.25-2.1-.78-4.01-2.47-1.48-1.32-2.48-2.95-2.77-3.45-.29-.5-.03-.77.22-1.02.22-.22.5-.58.75-.87.25-.29.33-.5.5-.83.16-.33.08-.62-.04-.87-.13-.25-1.12-2.7-1.54-3.7-.4-.97-.82-.84-1.12-.85-.29-.01-.62-.01-.95-.01-.33 0-.87.12-1.33.62-.45.5-1.74 1.7-1.74 4.15 0 2.45 1.78 4.82 2.03 5.15.25.33 3.5 5.35 8.49 7.5 1.19.51 2.11.82 2.84 1.05 1.19.38 2.27.32 3.13.2.95-.15 2.95-1.21 3.37-2.37.41-1.16.41-2.16.29-2.37-.12-.21-.45-.33-.95-.58z"/>
-                </svg>
+              <a href="https://wa.me/19296417574" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="YouTube">
+                <!-- Real YouTube brand logo (image file) -->
+                <img src="assets/icons/whatsapp.avif" alt="YouTube" class="footer-social-img" loading="lazy" />
               </a>
               <a href="https://www.youtube.com/@GobindRaiEntertainment" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="YouTube">
                 <!-- Real YouTube brand logo (image file) -->
-                <img src="assets/icons/youtube.png" alt="YouTube" class="footer-social-img" loading="lazy" />
+                <img src="assets/icons/youtube.avif" alt="YouTube" class="footer-social-img" loading="lazy" />
               </a>
               <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="TikTok">
                 <!-- Real TikTok brand logo (image file) -->
@@ -63,7 +58,7 @@ function createFooterHTML() {
               </a>
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="Instagram">
                 <!-- Real Instagram brand logo (image file) -->
-                <img src="assets/icons/instagram.avif" alt="Instagram" class="footer-social-img" loading="lazy" />
+                <img src="assets/icons/instagram.jpg" alt="Instagram" class="footer-social-img" loading="lazy" />
               </a>
             </div>
           </div>
