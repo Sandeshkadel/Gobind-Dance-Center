@@ -17,6 +17,56 @@ function initContactForm() {
   const submitBtn = form.querySelector('button[type="submit"]');
   const countrySelect = form.querySelector('[name="countryCode"]');
 
+  // Name input - letters and spaces only (strip digits/symbols as user types)
+  if (nameInput) {
+    nameInput.addEventListener('input', (e) => {
+      const el = e.target;
+      const cursor = el.selectionStart;
+      // 1. Strip anything that isn't a letter or space.
+      // 2. Collapse runs of spaces so we never end up with "  ".
+      // 3. Trim a single leading space (so a space-first word is impossible).
+      // 4. Cap at 80 chars to keep the field sane.
+      const cleaned = el.value
+        .replace(/[^a-zA-Z\s]/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/^\s/, '')
+        .slice(0, 80);
+      if (cleaned !== el.value) {
+        el.value = cleaned;
+        // Restore caret as close to the original position as possible.
+        if (typeof cursor === 'number') {
+          try { el.setSelectionRange(cursor, cursor); } catch (_) { /* noop */ }
+        }
+      }
+    });
+
+    // Paste: clean immediately, before the input event fires in some browsers.
+    nameInput.addEventListener('paste', (e) => {
+      window.requestAnimationFrame(() => {
+        nameInput.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+  }
+
+  // Email input - force lowercase on every keystroke / paste
+  if (emailInput) {
+    const lowerize = (e) => {
+      const el = e.target;
+      const cursor = el.selectionStart;
+      const lower = el.value.toLowerCase();
+      if (lower !== el.value) {
+        el.value = lower;
+        if (typeof cursor === 'number') {
+          try { el.setSelectionRange(cursor, cursor); } catch (_) { /* noop */ }
+        }
+      }
+    };
+    emailInput.addEventListener('input', lowerize);
+    // Some browsers fire `change` but not `input` for IME / autofill edge cases —
+    // also normalise on blur so any remaining capitals are caught.
+    emailInput.addEventListener('blur', lowerize);
+  }
+
   // Phone input - only digits
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
@@ -27,6 +77,19 @@ function initContactForm() {
   // Form submit
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Normalise again on submit in case anything slipped past the input
+    // handler (autofill, browser extensions, etc.).
+    if (nameInput) {
+      nameInput.value = nameInput.value
+        .replace(/[^a-zA-Z\s]/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/^\s/, '')
+        .slice(0, 80);
+    }
+    if (emailInput) {
+      emailInput.value = emailInput.value.toLowerCase();
+    }
 
     // Validate
     if (!nameInput?.value.trim()) {
