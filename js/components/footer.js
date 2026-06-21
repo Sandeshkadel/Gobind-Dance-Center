@@ -29,6 +29,11 @@ function createFooterHTML() {
 
   return `
     <footer class="footer">
+      <!-- Wave line animation -->
+      <div class="footer-wave-line"></div>
+      <!-- Glow overlay -->
+      <div class="footer-glow-overlay"></div>
+
       <div class="footer-inner">
         <div class="footer-grid">
           <!-- Brand -->
@@ -41,23 +46,18 @@ function createFooterHTML() {
             </p>
             <div class="footer-social">
               <a href="https://facebook.com/gobind.rai.5" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img1" aria-label="YouTube">
-                <!-- Real YouTube brand logo (image file) -->
                 <img src="assets/icons/facebook.avif" alt="YouTube" class="footer-social-img" loading="lazy" />
               </a>
               <a href="https://wa.me/19296417574" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="YouTube">
-                <!-- Real YouTube brand logo (image file) -->
                 <img src="assets/icons/whatsapp.avif" alt="YouTube" class="footer-social-img" loading="lazy" />
               </a>
               <a href="https://www.youtube.com/@GobindRaiEntertainment" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="YouTube">
-                <!-- Real YouTube brand logo (image file) -->
                 <img src="assets/icons/youtube.avif" alt="YouTube" class="footer-social-img" loading="lazy" />
               </a>
               <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="TikTok">
-                <!-- Real TikTok brand logo (image file) -->
                 <img src="assets/icons/tiktok.avif" alt="TikTok" class="footer-social-img" loading="lazy" />
               </a>
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="Instagram">
-                <!-- Real Instagram brand logo (image file) -->
                 <img src="assets/icons/instagram.jpg" alt="Instagram" class="footer-social-img" loading="lazy" />
               </a>
             </div>

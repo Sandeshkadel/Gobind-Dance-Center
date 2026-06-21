@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - Gobind Dance Center</title>
-  <meta name="description" content="Discover the journey of Gobind Rai - a master choreographer with over 30 years of experience in cinema and dance education.">
+  <meta name="description" content="Discover the journey of Gobind Rai - a master choreographer with over 30 years of experience in cinema and dance education." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="assets/icons/Febicone.png">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" href="assets/icons/Febicone.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/components/navbar.css">
-  <link rel="stylesheet" href="css/components/footer.css">
-  <link rel="stylesheet" href="css/components/cards.css">
-  <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components/navbar.css" />
+  <link rel="stylesheet" href="css/components/footer.css" />
+  <link rel="stylesheet" href="css/components/cards.css" />
+  <link rel="stylesheet" href="css/loader.css" />
 
   <style>
     /* ============================================================
@@ -130,6 +130,7 @@
     /* ── Bio Section ── */
     .about-bio {
       padding: 4rem 0;
+      scroll-margin-top: 100px; /* Helps when navigating via hash, but we use JS */
     }
 
     @media (min-width: 768px) {
@@ -209,7 +210,6 @@
       overflow: hidden;
     }
 
-    /* ── FIXED: Single orange colour on hover ── */
     .about-metric::after {
       content: '';
       position: absolute;
@@ -273,24 +273,25 @@
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
-      /* Same organic asymmetric curve as the hero image */
       border-radius: 30% 70% 68% 32% / 32% 32% 68% 68%;
-      transition:
-        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
         border-radius 0.9s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform, border-radius;
       border: 1px solid #EEEEEE;
-      /* gentle continuous float — matches hero-image treatment */
       animation: about-img-float 7s ease-in-out infinite;
     }
 
     @keyframes about-img-float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-8px); }
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
     .about-portrait:hover {
-      /* Soften corners on hover, like the hero image */
       border-radius: 22% 22% 22% 22% / 22% 22% 22% 22%;
       transform: translateY(-10px) scale(1.03);
       border-color: #EEEEEE;
@@ -298,7 +299,9 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .about-portrait { animation: none !important; }
+      .about-portrait {
+        animation: none !important;
+      }
       .about-portrait:hover {
         transform: translateY(-4px) scale(1.02);
       }
@@ -352,7 +355,6 @@
       border-bottom: none;
     }
 
-    /* ── ENHANCED: Bigger dot with glow ── */
     .about-timeline-item::before {
       content: '';
       position: absolute;
@@ -382,7 +384,6 @@
       border-radius: 6px;
     }
 
-    /* ── ENHANCED: Larger timeline text ── */
     .about-timeline-year {
       font-size: 16px;
       font-weight: 600;
@@ -413,7 +414,7 @@
 
     @media (min-width: 768px) {
       .about-philosophy {
-        padding: 7rem 0;
+        padding: 1rem 0;
       }
     }
 
@@ -442,8 +443,14 @@
     }
 
     @keyframes pulseGlow {
-      0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
-      100% { transform: scale(1.15) translate(5%, 5%); opacity: 1; }
+      0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1.15) translate(5%, 5%);
+        opacity: 1;
+      }
     }
 
     .about-philosophy-content {
@@ -640,52 +647,129 @@
 
     /* ── 2560px / 4K tier ── */
     @media (min-width: 2560px) {
-      .container { max-width: 2000px; padding-left: 2rem; padding-right: 2rem; }
-      .about-hero { height: 50vh; min-height: 720px; }
-      .about-hero h1 { font-size: 4.4rem; }
-      .about-hero p { font-size: 26px; max-width: 56rem; }
-      .about-bio { padding: 7rem 0; }
-      .about-bio h2 { font-size: 2.8rem; }
-      .about-bio p { font-size: 20px; line-height: 1.85; }
-      .about-bio-grid { grid-template-columns: 1fr 520px; gap: 5rem; }
-      .about-metrics { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-      .about-metric-value { font-size: 3.4rem; }
-      .about-metric-label { font-size: 16px; }
-      .about-metric-unit { font-size: 14px; }
-      .about-metric-desc { font-size: 17px; }
-      .about-timeline h3 { font-size: 19px; }
-      .about-timeline-year { font-size: 22px; }
-      .about-timeline-event { font-size: 21px; }
-      .about-philosophy { padding: 9rem 0; }
-      .about-philosophy-content { max-width: 72rem; }
-      .about-philosophy-quote { font-size: 6rem; }
-      .about-philosophy-text { font-size: 1.6rem; }
-      .about-philosophy-name { font-size: 20px; }
+      .container {
+        max-width: 2000px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .about-hero {
+        height: 50vh;
+        min-height: 720px;
+      }
+      .about-hero-title {
+        font-size: 4.4rem;
+      }
+      .about-bio {
+        padding: 7rem 0;
+      }
+      .about-bio-grid {
+        grid-template-columns: 1fr 520px;
+        gap: 5rem;
+      }
+      .about-bio-text p {
+        font-size: 20px;
+        line-height: 1.85;
+      }
+      .about-metrics {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+      .about-metric-value {
+        font-size: 3.4rem;
+      }
+      .about-metric-unit {
+        font-size: 14px;
+      }
+      .about-metric-desc {
+        font-size: 17px;
+      }
+      .about-timeline h3 {
+        font-size: 19px;
+      }
+      .about-timeline-year {
+        font-size: 22px;
+      }
+      .about-timeline-event {
+        font-size: 21px;
+      }
+      .about-philosophy {
+        padding: 9rem 0;
+      }
+      .about-philosophy-content {
+        max-width: 72rem;
+      }
+      .about-philosophy-quote {
+        font-size: 6rem;
+      }
+      .about-philosophy-text {
+        font-size: 1.6rem;
+      }
+      .about-philosophy-name {
+        font-size: 20px;
+      }
     }
 
-    /* ── 3840px / 8K tier (75" 8K TV) ── */
+    /* ── 3840px / 8K tier ── */
     @media (min-width: 3840px) {
-      .container { max-width: 2400px; padding-left: 2.5rem; padding-right: 2.5rem; }
-      .about-hero { height: 55vh; min-height: 920px; }
-      .about-hero h1 { font-size: 5.6rem; }
-      .about-hero p { font-size: 32px; max-width: 70rem; }
-      .about-bio { padding: 9rem 0; }
-      .about-bio h2 { font-size: 3.6rem; }
-      .about-bio p { font-size: 26px; }
-      .about-bio-grid { grid-template-columns: 1fr 640px; gap: 6rem; }
-      .about-metrics { grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
-      .about-metric-value { font-size: 4.4rem; }
-      .about-metric-label { font-size: 20px; }
-      .about-metric-unit { font-size: 18px; }
-      .about-metric-desc { font-size: 22px; }
-      .about-timeline h3 { font-size: 24px; }
-      .about-timeline-year { font-size: 28px; }
-      .about-timeline-event { font-size: 27px; }
-      .about-philosophy { padding: 12rem 0; }
-      .about-philosophy-content { max-width: 88rem; }
-      .about-philosophy-quote { font-size: 8rem; }
-      .about-philosophy-text { font-size: 2rem; }
-      .about-philosophy-name { font-size: 26px; }
+      .container {
+        max-width: 2400px;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
+      .about-hero {
+        height: 55vh;
+        min-height: 920px;
+      }
+      .about-hero-title {
+        font-size: 5.6rem;
+      }
+      .about-bio {
+        padding: 9rem 0;
+      }
+      .about-bio-grid {
+        grid-template-columns: 1fr 640px;
+        gap: 6rem;
+      }
+      .about-bio-text p {
+        font-size: 26px;
+      }
+      .about-metrics {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+      }
+      .about-metric-value {
+        font-size: 4.4rem;
+      }
+      .about-metric-unit {
+        font-size: 18px;
+      }
+      .about-metric-desc {
+        font-size: 22px;
+      }
+      .about-timeline h3 {
+        font-size: 24px;
+      }
+      .about-timeline-year {
+        font-size: 28px;
+      }
+      .about-timeline-event {
+        font-size: 27px;
+      }
+      .about-philosophy {
+        padding: 12rem 0;
+      }
+      .about-philosophy-content {
+        max-width: 88rem;
+      }
+      .about-philosophy-quote {
+        font-size: 8rem;
+      }
+      .about-philosophy-text {
+        font-size: 2rem;
+      }
+      .about-philosophy-name {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
@@ -696,14 +780,14 @@
     <!-- Hero Banner with Parallax -->
     <section class="about-hero">
       <div class="about-hero-bg" id="parallax-bg">
-        <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/570529521_25188997747400209_2149442616556549722_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1152&ctp=s2048x1152&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ir7QeqaozvUQ7kNvwFkHkub&_nc_oc=AdpyHUKQNdcoHEdQUMMP-b95uiD9ptY90xAd0fLmYzVwcDB1iOvxmiSyvefRLOJZzxvGEhLPWrKTJkLzIJsJw7Q0&_nc_zt=23&_nc_ht=scontent.fktm3-1.fna&_nc_gid=ilclPgzy0ORz3WS_WBvN4A&_nc_ss=7b2a8&oh=00_Af8Nt-YA72SYZuZipk0F514YbIQffH_hY8RsO2SPgP6AWA&oe=6A369BAA" alt="Dance performance" loading="lazy">
+        <img src="assets/images/Image10.jpg" alt="Dance performance" loading="lazy" />
       </div>
       <div class="about-hero-overlay"></div>
       <div class="about-hero-content">
         <span class="about-hero-badge reveal">Historical Record</span>
         <h1 class="about-hero-title reveal">
-          A Life Choreographed<br>
-          <span class="about-hero-title-accent">in Devotion & Discipline.</span>
+          A Life Choreographed<br />
+          <span class="about-hero-title-accent">in Devotion &amp; Discipline.</span>
         </h1>
       </div>
     </section>
@@ -734,12 +818,12 @@
               <div class="about-metric stagger-item">
                 <p class="about-metric-value"><span class="count-up" data-target="30" data-suffix="+">0</span></p>
                 <p class="about-metric-unit">Years</p>
-                <p class="about-metric-desc">Cinema & Studio Mastery</p>
+                <p class="about-metric-desc">Cinema &amp; Studio Mastery</p>
               </div>
               <div class="about-metric stagger-item" style="transition-delay: 0.08s;">
                 <p class="about-metric-value"><span class="count-up" data-target="15" data-suffix="+">0</span></p>
                 <p class="about-metric-unit">Stars</p>
-                <p class="about-metric-desc">Trained & Screen Launched</p>
+                <p class="about-metric-desc">Trained &amp; Screen Launched</p>
               </div>
               <div class="about-metric stagger-item" style="transition-delay: 0.16s;">
                 <p class="about-metric-value"><span class="count-up" data-target="2" data-suffix="">0</span></p>
@@ -752,7 +836,7 @@
           <!-- Portrait + Timeline -->
           <div class="about-sidebar">
             <div class="reveal-scale">
-              <img src="assets/gobind1.jpg" alt="Gobind Rai portrait" class="about-portrait" loading="lazy">
+              <img src="assets/gobind1.jpg" alt="Gobind Rai portrait" class="about-portrait" loading="lazy" />
             </div>
 
             <div class="reveal-scale" style="transition-delay: 0.15s;">
@@ -769,7 +853,7 @@
                   </div>
                   <div class="about-timeline-item stagger-item" style="transition-delay: 0.12s;">
                     <span class="about-timeline-year">2002</span>
-                    <span class="about-timeline-event">NTV's Aagan — Talent Judge & Choreographer</span>
+                    <span class="about-timeline-event">NTV's Aagan — Talent Judge &amp; Choreographer</span>
                   </div>
                   <div class="about-timeline-item stagger-item" style="transition-delay: 0.18s;">
                     <span class="about-timeline-year">2007</span>
@@ -863,11 +947,9 @@
 
       window.addEventListener('scroll', () => {
         const scrollY = window.pageYOffset;
-        // Only apply if the hero is still in view
         const hero = parallax.closest('.about-hero');
         if (hero) {
           const rect = hero.getBoundingClientRect();
-          // If the hero is above the viewport, stop parallax to avoid weird jumps
           if (rect.bottom < 0) return;
           const speed = 0.12;
           parallax.style.transform = `translateY(${scrollY * speed}px)`;
@@ -882,7 +964,6 @@
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Add visible class with a small delay for stagger effect
             const delay = entry.target.style.transitionDelay || '0s';
             const delayMs = parseFloat(delay) * 1000 || 0;
             setTimeout(() => {
@@ -898,36 +979,55 @@
       elements.forEach(el => observer.observe(el));
     }
 
+    // ── Scroll to Bio on load ──
+    function scrollToBio() {
+      const bio = document.querySelector('.about-bio');
+      if (!bio) return;
+
+      // Try to get the navbar height for a precise offset
+      let navbar = document.querySelector('nav') || document.querySelector('.navbar');
+      let offset = 0;
+      if (navbar) {
+        offset = navbar.offsetHeight;
+      }
+
+      // Calculate the target position (top of bio minus navbar height)
+      const targetTop = bio.getBoundingClientRect().top + window.pageYOffset - offset;
+
+      // Only scroll if the bio is not already at the target position
+      if (Math.abs(window.pageYOffset - targetTop) > 5) {
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      }
+    }
+
     // ── Init Everything ──
     document.addEventListener('DOMContentLoaded', function() {
       initScrollReveal();
       initCounters();
       initParallax();
-
-      // Also observe dynamically added stagger items
-      const staggerObserver = new MutationObserver(() => {
-        document.querySelectorAll('.stagger-item:not(.observed)').forEach(el => {
-          el.classList.add('observed');
-          // Re-run observer for newly added items if needed
-        });
-      });
     });
 
-    // Re-run on load to catch any late-rendered elements
+    // ── Scroll after load to ensure layout is complete ──
     window.addEventListener('load', function() {
-      document.querySelectorAll('.stagger-item').forEach(el => {
-        // Ensure they are observed if not already visible
-      });
+      // A slight delay ensures the navbar is fully rendered and images are loaded
+      setTimeout(scrollToBio, 300);
     });
   </script>
 
   <!-- ── External Scripts ── -->
-  <script src="js/emailjs-config.js"></script>
-  <script src="js/utilities.js"></script>
-  <script src="js/components/navbar.js"></script>
-  <script src="js/components/footer.js"></script>
-  <script src="js/components/scroll.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/loader.js"></script>
+  <script src="js/emailjs-config.js">
+  </script>
+  <script src="js/utilities.js">
+  </script>
+  <script src="js/components/navbar.js">
+  </script>
+  <script src="js/components/footer.js">
+  </script>
+  <script src="js/components/scroll.js">
+  </script>
+  <script src="js/main.js">
+  </script>
+  <script src="js/loader.js">
+  </script>
 </body>
 </html>
