@@ -101,7 +101,7 @@ function createFooterHTML() {
               <p class="footer-contact-text">
                 <a href="https://maps.app.goo.gl/D6KbNcKLLepX2wMv7" target="_blank" rel="noopener noreferrer" class="footer-location-link">
                   Gobind Dance Center<br />
-                  40-08 76th St, Elmhurst<br />
+                  41-32 75th St, Elmhurst<br />
                   New York City, USA
                 </a>
               </p>
