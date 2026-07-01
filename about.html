@@ -404,7 +404,7 @@
         }
 
         /* ============================================================
-           PHILOSOPHY — TWO QUOTES SIDE BY SIDE
+           PHILOSOPHY — TWO QUOTES SIDE BY SIDE (CLEAN, NO TOP LINE)
            ============================================================ */
         .about-philosophy {
             background: rgba(241, 243, 245, 0.4);
@@ -479,7 +479,7 @@
             }
         }
 
-        /* ── Quote Card ── */
+        /* ── Quote Card — CLEAN, NO TOP LINE ── */
         .about-philosophy-quote-card {
             position: relative;
             background: rgba(255, 255, 255, 0.72);
@@ -487,7 +487,7 @@
             -webkit-backdrop-filter: blur(8px);
             border-radius: 24px;
             padding: 2.5rem 2.2rem 2rem;
-            border: 1px solid rgba(228, 138, 36, 0.12);
+            border: 1px solid rgba(228, 138, 36, 0.10);
             box-shadow: 0 4px 28px rgba(42, 58, 140, 0.05);
             transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
             display: flex;
@@ -496,39 +496,10 @@
         }
 
         .about-philosophy-quote-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 48px rgba(42, 58, 140, 0.10);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(42, 58, 140, 0.12);
             border-color: rgba(228, 138, 36, 0.30);
-            background: rgba(255, 255, 255, 0.88);
-        }
-
-        .about-philosophy-quote-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--brand-orange), var(--brand-blue), var(--brand-orange));
-            background-size: 200% 100%;
-            border-radius: 24px 24px 0 0;
-            opacity: 0.6;
-            transition: opacity 0.4s ease;
-            animation: shimmerBorder 4s ease-in-out infinite;
-        }
-
-        .about-philosophy-quote-card:hover::before {
-            opacity: 1;
-        }
-
-        @keyframes shimmerBorder {
-            0%,
-            100% {
-                background-position: 0% 0%;
-            }
-            50% {
-                background-position: 100% 0%;
-            }
+            background: rgba(255, 255, 255, 0.92);
         }
 
         .about-philosophy-quote-mark {
@@ -579,7 +550,7 @@
             text-transform: uppercase;
             color: rgba(42, 58, 140, 0.5);
             font-weight: 500;
-            border-top: 1px solid rgba(228, 138, 36, 0.12);
+            border-top: 1px solid rgba(228, 138, 36, 0.10);
             padding-top: 0.85rem;
             margin-top: 0.25rem;
             transition: color 0.3s ease, border-color 0.3s ease;
@@ -598,7 +569,7 @@
 
         .about-philosophy-quote-card:hover .about-philosophy-quote-author {
             color: rgba(42, 58, 140, 0.75);
-            border-color: rgba(228, 138, 36, 0.25);
+            border-color: rgba(228, 138, 36, 0.20);
         }
 
         .about-philosophy-quote-author strong {
@@ -618,7 +589,7 @@
         }
 
         .about-philosophy-quote-card:hover .quote-icon {
-            color: rgba(228, 138, 36, 0.12);
+            color: rgba(228, 138, 36, 0.14);
             transform: rotate(8deg) scale(1.1);
         }
 
@@ -925,7 +896,7 @@
                 <div class="about-bio-grid">
                     <div class="about-bio-text reveal-left">
                         <p>
-                            Born on <strong>September 14, 1971</strong>, in Dharan, Sunsari, Nepal — Gobind Rai has spent over three decades sculpting movement into meaning. Today he commands cultural classes out of the <strong>Gobind Dance Center</strong> at <span class="highlight-text">41-32 75ST, Elmhurst 11373, New York City, </span>.
+                            Born on <strong>September 14, 1971</strong>, in Dharan, Sunsari, Nepal — Gobind Rai has spent over three decades sculpting movement into meaning. Today he commands cultural classes out of the <strong>Gobind Dance Center</strong> at <span class="highlight-text">41-32 75ST, Elmhurst 11373, New York City, USA</span>.
                         </p>
                         <p>
                             His cinematic direction footprint culminated in the award-winning Nepalese feature film <em>"NAAGBELI"</em> (2013), a landmark achievement in national cinema.
@@ -1010,11 +981,11 @@
             </div>
         </section>
 
-        <!-- Philosophy Banner — TWO QUOTES SIDE BY SIDE -->
+        <!-- Philosophy Banner — TWO QUOTES SIDE BY SIDE (CLEAN, NO TOP LINE) -->
         <section class="about-philosophy">
             <div class="about-philosophy-content reveal">
                 <div class="about-philosophy-quotes-grid">
-                    <!-- Quote 1 — existing refined -->
+                    <!-- Quote 1 — refined -->
                     <div class="about-philosophy-quote-card">
                         <span class="about-philosophy-quote-mark">&ldquo;</span>
                         <p class="about-philosophy-quote-text">
