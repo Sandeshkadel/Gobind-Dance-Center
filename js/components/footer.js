@@ -54,7 +54,7 @@ function createFooterHTML() {
               <a href="https://www.youtube.com/@GobindRaiEntertainment" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="YouTube">
                 <img src="assets/icons/youtube.avif" alt="YouTube" class="footer-social-img" loading="lazy" />
               </a>
-              <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="TikTok">
+              <a href="https://www.instagram.com/gobind.rai.entertainment/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="TikTok">
                 <img src="assets/icons/tiktok.avif" alt="TikTok" class="footer-social-img" loading="lazy" />
               </a>
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-social-link--img" aria-label="Instagram">
