@@ -129,7 +129,7 @@ function createFooterHTML() {
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
           <p class="footer-copyright">© ${currentYear} Gobind Dance Center. All rights reserved.</p>
-          <a href="https://mihgroup.com.np/"<p class="footer-location">Made with ❤️ by M.I.H Group.</p>></a>
+          <a href="https://mihgroup.com.np/"<p class="footer-location">Made with ❤️ by M.I.H Group.</p></a>
         </div>
       </div>
     </footer>
