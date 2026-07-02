@@ -13,11 +13,11 @@ const FOOTER_LINKS = [
 
 const FOOTER_PROGRAMS = [
   'Kids Dance Courses',
-  'Neplai Cultural Dance ',
-  'Semi Classical Basic',
+  'Nepali Cultural Dance ',
+  'Semi-Classical Basic',
   'Dance Video Direction/Compose',
   'Choreography for Events',
-  'Advance Sepcial Classes',
+  'Advance Special Classes',
 ];
 
 /**
